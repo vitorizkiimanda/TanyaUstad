@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-navbar color="muserYellow">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="muserBlack"></ion-icon>
+    </button>
+    <ion-title text-right><span class="wordNavbar">Home</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  
+  <ion-slides pager>
+
+    <ion-slide>
+      <img class="slide-image" src="assets/pict/1.jpg"/>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="slide-image" src="assets/pict/2.jpg"/>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="slide-image" src="assets/pict/3.jpg"/>
+    </ion-slide>
+
+  </ion-slides>
+
+
+  <ion-grid>
+    <ion-row class="rowHeight">
+      <ion-col col-4>
+        <button class="ButtonGenre" clear ion-button (click)="choose('action')" block>
+          <p ion-text [hidden]='categoryChoosen!="action"' class="ButtonWordChoosen">Action</p>
+          <p ion-text [hidden]='categoryChoosen=="action"' class="ButtonWord">Action</p>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button class="borderCenter" clear ion-button (click)="choose('commedy')" block>
+          <p [hidden]='categoryChoosen!="commedy"' class="ButtonWordChoosen">Commedy</p>
+          <p [hidden]='categoryChoosen=="commedy"' class="ButtonWord">Commedy</p>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button class="ButtonGenre" clear ion-button (click)="choose('drama')" block>
+          <p [hidden]='categoryChoosen!="drama"' class="ButtonWordChoosen">Drama</p>
+          <p [hidden]='categoryChoosen=="drama"' class="ButtonWord">Drama</p>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding>
+    <ion-row [hidden]="data.category!=categoryChoosen" color="danger" *ngFor="let data of video" no-padding class="rowHeightVideo">
+      <ion-col no-padding col-12>
+        <img (click)="gotoVideo(data)" class="content-imageBig" src="http://156.67.218.250:81{{data.picture}}"/>
+        <div class="imgText">
+          <span class="imgTextHeader">{{data.name}}</span>
+          <br/>
+          <span class="imgTextContent">{{data.description}}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ion-grid no-padding>
+
+      <div *ngFor="let data of video">
+        <div  *ngIf="data.id%2==0">
+          <ion-row no-padding class="rowHeight">
+            <ion-col no-padding col-8>
+              <img class="content-imageBig" src="http://156.67.218.250:81{{data.picture}}"/>
+            </ion-col>
+            <ion-col no-padding col-4>
+              <ion-row no-padding>
+                <ion-col no-padding>
+                    <img class="content-imageSmall" src="http://156.67.218.250:81{{data.picture}}"/>
+                </ion-col>
+              </ion-row>
+              <ion-row no-padding>
+                  <ion-col no-padding>
+                      <img class="content-imageSmall" src="http://156.67.218.250:81{{data.picture}}"/>
+                  </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="data.id%2!=0">
+          <ion-row no-padding class="rowHeight">
+            <ion-col no-padding col-4>
+              <ion-row no-padding>
+                <ion-col no-padding>
+                    <img class="content-imageSmall" src="http://156.67.218.250:81{{data.picture}}"/>
+                </ion-col>
+              </ion-row>
+              <ion-row no-padding>
+                  <ion-col no-padding>
+                      <img class="content-imageSmall" src="http://156.67.218.250:81{{data.picture}}"/>
+                  </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col no-padding col-8>
+              <img class="content-imageBig" src="http://156.67.218.250:81{{data.picture}}"/>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-grid> -->
+  
+</ion-content>

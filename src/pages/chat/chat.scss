@@ -1,0 +1,89 @@
+page-chat {
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    .chatSender{
+        font-size: 6vw;
+        color: white;
+    }
+
+    .chatContent{
+        font-size: 5vw;
+        color: white;
+    }
+
+    /* CSS talk bubble */
+    .talk-bubble-left {
+        margin: 20px 5px;
+        display: inline-block;
+        position: relative;
+        max-width: 70vw;
+        height: auto;
+        background-color: #3D5C98;
+    }
+
+    .talk-bubble-right {
+        float: right;
+        margin: 0px 5px;
+        display: inline-block;
+        position: relative;
+        max-width: 70vw;
+        height: auto;
+        background-color: #965BA5;
+    }
+/*Right triangle, placed bottom left side slightly in*/
+
+    .tri-right.btm-left:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0px;
+        right: auto;
+        top: auto;
+        bottom: -10px;
+        border: 12px solid;
+        border-color: transparent transparent transparent #3D5C98;
+    }
+
+
+    .tri-right.btm-right:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+    left: auto;
+        right: 0px;
+        bottom: -10px;
+        border: 12px solid;
+        border-color: #965BA5 #965BA5 transparent transparent;
+    }
+
+
+
+/* talk bubble contents */
+    .talktext{
+        padding: 3vw;
+        text-align: left;
+        line-height: 7vw;
+    }
+    .talktext p{
+    /* remove webkit p margins */
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    }
+
+
+}

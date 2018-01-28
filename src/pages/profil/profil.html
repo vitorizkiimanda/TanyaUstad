@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="muserYellow">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="muserBlack"></ion-icon>
+    </button>
+    <ion-title text-right><span class="wordNavbar">Profil</span></ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  
+  <ion-content class="background" *ngIf="role=='user'">
+    
+      <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict" (click)="updatePicture()"/>
+      <img [src]="img" *ngIf="img" class="Pict" (click)="updatePicture()"/>
+  
+  
+    <ion-item padding-right text-wrap>
+      <p class="Nama">{{name}}</p>
+    </ion-item>
+  
+    <ion-item padding-right text-wrap>
+      <ion-icon name="mail" item-left class="IconMail"></ion-icon>
+      <p class="Head">Email</p>
+      <p class="Konten">{{email}}</p>
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="call" item-left class="Icon"></ion-icon>
+      <p class="Head">Nomor Telepon</p>
+      <p *ngIf="hp" class="Konten">{{hp}}</p>
+      <p *ngIf="!hp" class="Konten">-</p>
+      
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="md-calendar" item-left class="Icon"></ion-icon>
+      <p class="Head">Tanggal Ulang Tahun</p>
+      <p *ngIf="birthdate" class="Konten">{{birthdate}}</p>
+      <p *ngIf="!birthdate" class="Konten">-</p>
+
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <!-- <ion-icon name="md-female" *ngIf='gender=="male"' item-left class="Icon"></ion-icon> -->
+      <ion-icon name="md-transgender" item-left class="Icon"></ion-icon>
+      <p class="Head">Gender</p>
+      <p *ngIf="gender" class="Konten">{{gender}}</p>
+      <p *ngIf="!gender" class="Konten">-</p>
+
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="md-heart" item-left class="Icon"></ion-icon>
+      <p class="Head">Status</p>
+      <p *ngIf="status_kawin" class="Konten">{{status_kawin}}</p>
+      <p *ngIf="!status_kawin" class="Konten">-</p>
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="md-map" item-left class="Icon"></ion-icon>
+      <p class="Head">Domisili</p>
+      <p *ngIf="domisili" class="Konten">{{domisili}}</p>
+      <p *ngIf="!domisili" class="Konten">-</p>
+      
+    </ion-item>
+  
+    <ion-item padding-left-right>
+      <!-- <button class='Button' color="muserBlack" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button> -->
+      <button class='Button' color="light" ion-button block (click)='logOut()'><p class="ButtonWordBlack">Keluar Akun</p></button>
+    </ion-item>
+  
+  </ion-content>
+
+  <ion-content class="background" *ngIf="role=='guest'">
+    
+    <img src="assets/pict/Profil.png" class="Pict"/>
+
+
+  <ion-item padding-right text-wrap>
+    <p class="Nama">GUEST</p>
+  </ion-item>
+
+  <ion-item no-lines padding-left-right>
+    <button class='Button' color="light" ion-button block (click)='logOut()'><p class="ButtonWordBlack">Masuk</p></button>
+  </ion-item>
+
+</ion-content>
+  

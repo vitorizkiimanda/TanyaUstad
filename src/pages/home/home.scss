@@ -1,0 +1,96 @@
+page-home {
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    //slider
+    ion-slides {
+        background: white;
+        width: 100%;
+        height: 35%;
+        display: block;
+    }
+    .slide-image {
+        // max-width: 100%;
+        // height: 100%;
+        height: 35vh;
+        width: 100vw;
+    }
+    .swiper-pagination-bullet-active{
+        background: white;
+        opacity: 1;
+    }
+    //slider ^^^
+
+    .ButtonWord{
+        font-size: 5vw;
+        color: white;
+    }
+    
+    .ButtonWordChoosen{
+        font-size: 5.5vw;
+        color: rgb(7, 56, 109);
+        font-weight: 900;
+    }
+    .ButtonGenre {
+        height: 10vw !important;
+        width: 100%;
+    }
+
+    .borderCenter {
+        position: relative;
+        right: 5%;
+        height: 10vw !important;
+        width: 110%;
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+        border-radius: 0;
+    }
+
+    .rowHeightVideo{
+        height: 30vh;
+    }
+
+    .content-imageBig {
+        width: 100%;
+        height: 30vh;
+    }
+    .content-imageSmall {
+        width: 100%;
+        height: 100%;
+    }
+
+    .imgText{
+        width: 100vw;
+        height: 12vh;
+
+        
+        color: white;
+
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(rgba(117, 117, 117, 0), rgba(48, 48, 48, 0.9)); 
+    }
+    .imgTextHeader{
+        font-size: 6vw;
+        font-weight: 600;
+    }
+    .imgTextContent{
+        font-size: 5vw;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}

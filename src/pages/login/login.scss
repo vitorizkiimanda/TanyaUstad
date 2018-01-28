@@ -1,0 +1,75 @@
+page-login {
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .Logo {
+        width:50vw; /* you can use % */
+        height: auto;
+        display: block; 
+        margin: auto;
+        margin-top: 20vw;
+    }
+
+    .icon {
+        font-size:7vw;
+        
+        float:right;
+    }
+    
+    .tombol {
+        height: 7vw !important;
+        color: white;
+
+        position: relative;
+        top: 5vw;
+        // width: 100%;
+    }  
+
+    .ButtonMasuk {
+        height: 10vw !important;
+        width: 70vw;
+        margin: auto;
+    }
+
+    .ButtonWord {
+        font-size: 5vw;
+        color: white;
+
+        text-transform: capitalize;
+    }
+
+    .ButtonWordBlack {
+        font-size: 5vw;
+        font-weight: 2px;
+        color: #2A3524;
+        text-transform: capitalize;
+    }
+
+    .Warning {
+        font-size: 5vw;
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
+    }
+
+    .Head {
+        font-size: 5vw;
+        color: white;
+    }
+    .Head2 {
+        font-size: 5vw;
+        color: white;
+    }
+    .Link {
+        font-size: 5vw;
+        font-weight: 700;
+        color: white;
+    }
+
+    .item-md {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}

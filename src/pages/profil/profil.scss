@@ -1,0 +1,93 @@
+page-profil {
+    .background {
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .item-md {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+    
+    .Pict {
+        height: 30vw; 
+        width: 30vw; 
+        border-radius: 100%;
+        margin-top: 15vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+
+    .Nama {
+        text-align: center;
+        color: white;
+        // font-size: 18px;
+        font-size: 6vw;
+        font-weight: 5px;
+    }
+    
+    .Head {
+        margin-left: 4vw;
+        font-size: 4vw;
+        font-weight: 6px;
+        color: white;
+    }
+    .HeadSpesial {
+        margin-left: 5vw;
+        text-align: center;
+        margin-top: 2vw;
+        font-size: 4vw;
+        font-weight: 6px;
+    }
+
+    .Konten {
+        margin-left: 4vw;
+        font-size: 5vw;
+        color: white;
+    }
+
+    .Icon {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: white;
+    }
+
+    .IconSpesial {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: rgba(1,1,1,0);
+    }
+
+    .IconMail {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: white;
+    }
+
+    .Button {
+        height: 10vw !important;
+        width: 100%;
+        margin-top: 3vw; 
+    }
+
+    .ButtonWordWhite {
+        font-size: 5vw;
+        color: white;
+        text-transform: capitalize;
+    }
+
+    .ButtonWordBlack {
+        font-size: 5vw;
+        color: #2A3524;
+        text-transform: capitalize;
+    }
+}

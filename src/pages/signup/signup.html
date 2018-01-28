@@ -1,0 +1,75 @@
+
+
+
+<ion-content class="background" padding>
+
+  <img src="assets/pict/MuserLogo.png" class='Logo'>
+  
+  <form #loginForm="ngForm" novalidate>
+		<ion-list >
+			<ion-item>
+				<ion-label floating><p class="Head">Email</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="email" pattern="[^@\]+@[^@\]+\.[^@\s]+" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+					required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+			Email harus valid
+			</p>
+
+			<ion-item>
+				<ion-label floating><p class="Head">Password</p></ion-label>
+				
+				
+				<ion-input class="Head2"  [(ngModel)]="password" name="pass" type="{{status}}" #pass="ngModel"  required>
+				</ion-input>
+				<button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
+				<button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='icon' color="primary2"> </ion-icon> </button>
+				
+
+			</ion-item>
+			
+			<p ion-text [hidden]="pass.valid || submitted == false" color="danger" padding-left class="Warning">
+				Password harus diisi
+			</p>
+		</ion-list>
+
+		<!--<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="login(loginForm)" type="submit" block>Masuk</button>
+			</ion-col>
+		</ion-row>-->
+
+		<!--ini buat mock up-->
+		<ion-row>
+			<ion-col>
+				<button class="ButtonMasuk" color="dark" ion-button (click)="masuk(loginForm)" block><p class="ButtonWord">Daftar</p></button>
+			</ion-col>
+		</ion-row>
+
+<!--		
+		<div text-center>
+			<button ion-button medium>
+				Click Here
+			</button>
+		</div>
+				-->
+
+		<ion-grid>
+			<ion-row>
+				<ion-col text-center>
+					<p class="Head">
+						<font color="white">Sudah punya akun?</font>
+						<a class="Link" (click)="goBack()"> Masuk.</a>
+					</p>
+				</ion-col>
+			</ion-row>
+			<!--<ion-row>
+				<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
+			</ion-row>-->
+		</ion-grid>
+
+	</form>
+
+
+</ion-content>

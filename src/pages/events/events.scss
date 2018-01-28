@@ -1,0 +1,58 @@
+page-events {
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    .wordContent{
+        color: #2A3524;
+        font-size: 5vw;
+    }
+
+    .wordContentTitle{
+        color: #2A3524;
+        font-weight: 700;
+        font-size: 7vw;
+    }
+    .event-image {
+        max-width: 100%;
+        max-height: 30vh;
+
+        display: block;
+        margin: auto;
+    }
+
+    .EventsCard{
+        background: white;
+        padding : 7px;
+        margin-bottom: 15px;
+    }
+    
+    .EventsContent{
+        padding: 0px 10px;
+
+    }
+
+    .iconContent {
+        font-size:7vw;
+    }
+
+    .italic{
+        font-style: italic;
+    }
+
+    p{
+        padding: 0;
+        margin: 5px 0px;
+    }
+}

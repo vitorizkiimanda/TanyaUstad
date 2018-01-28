@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="muserYellow">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="muserBlack"></ion-icon>
+    </button>
+    <ion-title text-right><span class="wordNavbar">Wallpaper</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background no-scroll">
+  <p class="choosenName">{{choosenName}}</p>
+  <ion-slides pager>
+
+    <ion-slide>
+      <img class="slide-image" src="{{choosenSource1}}"/>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="slide-image" src="{{choosenSource2}}"/>
+    </ion-slide>
+
+    <ion-slide>
+      <img class="slide-image" src="{{choosenSource3}}"/>
+    </ion-slide>
+
+  </ion-slides>
+  <!-- <img class="choosen" src="http://156.67.218.250:81{{choosenSource}}"/> -->
+
+
+  <ion-scroll scrollX="true" style="height: 500px" direction="x">
+    <span *ngFor="let data of images">
+        <img (click)='update(data)' class="options" src="{{data.picture}}"/>
+    </span>
+  </ion-scroll>
+  
+</ion-content>

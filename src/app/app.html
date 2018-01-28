@@ -1,0 +1,19 @@
+<ion-menu [content]="content">
+  <ion-header no-border >
+    <ion-toolbar color="muserRed">
+      <ion-title><img src="assets/pict/MuserLogo.png" class='LogoSideMenu'></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="MenuColor MenuContent">
+    <ion-list class="MenuColor">
+      <button class="MenuColorContent" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

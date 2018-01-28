@@ -1,0 +1,74 @@
+page-wallpaper {
+
+    //slider
+    ion-slides {
+        // background: white;
+        width: 100%;
+        height: 60vh;
+        display: block;
+    }
+    .slide-image {
+        // max-width: 100%;
+        // height: 100%;
+        width: 100vw;
+        height: 60vh;
+    }
+    .swiper-pagination-bullet-active{
+        background: white;
+        opacity: 1;
+    }
+    //slider ^^^
+
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: rgb(47, 151, 236);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .no-scroll .scroll-content{
+        overflow-y: hidden;
+    }
+
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    .choosen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2vh;
+
+        height: 60vh;
+        width : auto;
+    }
+
+    .choosenName {
+        text-align: center;
+        color: white;
+        // font-size: 18px;
+        font-size: 6vw;
+        font-weight: 5px;
+    }
+
+    .options {
+        margin-top: 5vh;
+        height: 15vh;
+        width : auto;
+    }
+
+    ion-scroll {
+        width: 100vw;
+        display: inline-block;
+        margin-bottom: 2vh;
+    }
+
+    .scroll-zoom-wrapper{
+        white-space: nowrap;
+    }
+}
