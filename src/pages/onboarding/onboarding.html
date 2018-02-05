@@ -7,22 +7,22 @@
 </ion-header>-->
 
 
-<ion-content class="background" padding>
+<ion-content [ngClass]="{'background': basic, 'backgroundCustom': custom}" padding>
   
   
-  <ion-slides pager>
+  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
 
     <ion-slide>
-      <img class="LogoMuser" src="assets/pict/MuserLogo.png"/>
-      <img class="GambarSplash" src="assets/pict/MuserOnboardingPict.png"/>
+      <img class="LogoTrias" src="assets/pict/LogoTrias.png"/>
+      <img class="LogoMQTV" src="assets/pict/LogoMQTV.png"/>
+      <img class="Logo" src="assets/pict/Logo.png"/>
 <!--       
       <p class="WordSplash TitleOnBoarding">Onboarding Wording</p>
       <p class="WordSplash ExplanationOnBoarding">Onboarding wording explanation</p> -->
     </ion-slide>
 
     <ion-slide>
-        <img class="LogoMuser" src="assets/pict/MuserLogo.png"/>
-        <img class="GambarSplash" src="assets/pict/MuserOnboardingPict.png"/>
+        <!-- <img class="splahCustomBG" src="assets/pict/splashCustom1.png"/> -->
     </ion-slide>
 
     <ion-slide>
@@ -42,4 +42,7 @@
       
     </ion-slide>
   </ion-slides>
+  <div text-center>
+    <button ion-button clear (click)='Skip()'><p class="ButtonWordWhite">SKIP</p></button>
+  </div>
 </ion-content>

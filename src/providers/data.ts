@@ -10,7 +10,7 @@ export class Data {
   public HAS_LOGGED_IN = 'status_login';
   
   constructor(public http: Http , public storage: Storage) {
-    console.log('Hello Data Provider');
+    // console.log('Hello Data Provider');
   }
 
   token(data : any) {

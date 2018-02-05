@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController,Events } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController,Events,Slides } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 
@@ -18,6 +18,11 @@ import { MyApp } from '../../app/app.component';
 })
 export class OnboardingPage {
 
+  @ViewChild(Slides) slides: Slides;
+
+  basic:any;
+  custom:any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -29,7 +34,24 @@ export class OnboardingPage {
   }
 
   ionViewDidLoad() {
+    this.basic=true;
     console.log('ionViewDidLoad OnboardingPage');
+    console.log(this.basic);
+  }
+
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    console.log('Current index is', currentIndex);
+    if(currentIndex==1) {
+      this.basic=false;
+      this.custom=true;
+    }
+    else {
+      this.basic=true;
+      this.custom=false;
+    }
+
+    console.log(this.basic);
   }
 
   Login() {
