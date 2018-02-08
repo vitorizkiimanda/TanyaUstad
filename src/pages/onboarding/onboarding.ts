@@ -22,6 +22,7 @@ export class OnboardingPage {
 
   basic:any;
   custom:any;
+  custom2:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -45,13 +46,20 @@ export class OnboardingPage {
     if(currentIndex==1) {
       this.basic=false;
       this.custom=true;
+      this.custom2=false;
     }
-    else {
+    if(currentIndex==0) {
       this.basic=true;
       this.custom=false;
+      this.custom2=false;
+    }
+    else{
+      this.basic=false;
+      this.custom=false;
+      this.custom2=true;
     }
 
-    console.log(this.basic);
+    console.log(this.custom2);
   }
 
   Login() {

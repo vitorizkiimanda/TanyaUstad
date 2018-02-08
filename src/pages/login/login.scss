@@ -1,17 +1,17 @@
 page-login {
     .background {
         //background-image: url('../assets/pict/welcome.png');
-        background-color: rgb(47, 151, 236);
+        background: linear-gradient(#2387A4, #4AAFBE, #73D1DA);
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .Logo {
-        width:50vw; /* you can use % */
+        width:30vw; /* you can use % */
         height: auto;
         display: block; 
         margin: auto;
-        margin-top: 20vw;
+        margin-top: 10vw;
     }
 
     .icon {
@@ -33,6 +33,7 @@ page-login {
         height: 10vw !important;
         width: 70vw;
         margin: auto;
+        margin-top: 5vh;
     }
 
     .ButtonWord {

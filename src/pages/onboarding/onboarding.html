@@ -6,11 +6,11 @@
 
 </ion-header>-->
 
-
-<ion-content [ngClass]="{'background': basic, 'backgroundCustom': custom}" padding>
+<!-- 
+<ion-content class="dummy-wrap" [ngClass]="{'backgroundCustom': basic, 'backgroundCustom': custom, 'backgroundCustom2': custom2}" padding> -->
+<ion-content class="backgroundCustom2"  padding>  
   
-  
-  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
+  <ion-slides class="success-wrap successfully-saved"  (ionSlideDidChange)="slideChanged()" pager>
 
     <ion-slide>
       <img class="LogoTrias" src="assets/pict/LogoTrias.png"/>
@@ -23,19 +23,27 @@
 
     <ion-slide>
         <!-- <img class="splahCustomBG" src="assets/pict/splashCustom1.png"/> -->
+        <span class="textPosition">
+          <span class="headText">
+            Indahnya Berbagi
+          </span>
+          <br/>
+          <span class="contentText">
+            Siraman religi akan menemani Anda, kapanpun dan dimanapun
+          </span>
+        </span>
     </ion-slide>
 
     <ion-slide>
-        <img class="LogoMuser2" src="assets/pict/MuserLogo.png"/>
-        <img class="GambarSplash" src="assets/pict/MuserOnboardingPict.png"/>
+        <img class="Logo" src="assets/pict/Logo.png"/>
 
       <ion-grid>          
           <ion-row >
             <ion-col col-6>
-              <button class='ButtonLogin' color="dark" block ion-button (click)='Login()'><p class="ButtonWordWhite">Login</p></button>            
+              <button class='ButtonLogin' color="ustadGreen" block ion-button (click)='Login()'><p class="ButtonWordWhite">Masuk</p></button>            
             </ion-col>
             <ion-col col-6>
-              <button class='ButtonLogin' color="light" block ion-button (click)='Guest()'><p class="ButtonWordBlack">Guest</p></button>           
+              <button class='ButtonLogin' color="light" block ion-button (click)='Guest()'><p class="ButtonWordBlack">Daftar</p></button>           
             </ion-col>
           </ion-row>
       </ion-grid>
@@ -43,6 +51,6 @@
     </ion-slide>
   </ion-slides>
   <div text-center>
-    <button ion-button clear (click)='Skip()'><p class="ButtonWordWhite">SKIP</p></button>
+    <button class="buttonSkip" ion-button clear (click)='Guest()'><p class="ButtonWordWhite">SKIP</p></button>
   </div>
 </ion-content>

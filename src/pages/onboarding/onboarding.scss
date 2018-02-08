@@ -1,5 +1,10 @@
 page-onboarding {
+
+    
+
+
     .background {
+        
         // background-image: url('../assets/pict/splashCustom1.png');
         background: linear-gradient(#2387A4, #4AAFBE, #73D1DA);
 
@@ -7,30 +12,7 @@ page-onboarding {
         background-repeat: no-repeat;
         background-size: cover;
 
-        -webkit-transition: background 300ms ease-in 2s; /* property duration timing-function delay */
-        -moz-transition: background 300ms ease-in 2s;
-        -o-transition: background 300ms ease-in 2s;
-        transition: background 300ms ease-in 2s;
-
-        -webkit-transition-property: background;
-    -webkit-transition-duration: 300ms;
-    -webkit-transition-timing-function: ease-in;
-    -webkit-transition-delay: 100ms;
-
-    -moz-transition-property: background;
-    -moz-transition-duration: 300ms;
-    -moz-transition-timing-function: ease-in;
-    -moz-transition-delay: 100ms;
-
-    -o-transition-property: background;
-    -o-transition-duration: 300ms;
-    -o-transition-timing-function: ease-in;
-    -o-transition-delay: 100ms;
-
-    transition-property: background;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in;
-    transition-delay: 100ms;
+        
 
     }
     .backgroundCustom {
@@ -40,32 +22,15 @@ page-onboarding {
 
         background-repeat: no-repeat;
         background-size: cover;
+    }
 
-        -webkit-transition: background 300ms ease-in 2s; /* property duration timing-function delay */
-        -moz-transition: background 300ms ease-in 2s;
-        -o-transition: background 300ms ease-in 2s;
-        transition: background 300ms ease-in 2s;
+    .backgroundCustom2 {
+        background-image: url('../assets/pict/splashCustom2.png');
+        // background: linear-gradient(#2387A4, #4AAFBE, #73D1DA);
 
-        -webkit-transition-property: background;
-    -webkit-transition-duration: 300ms;
-    -webkit-transition-timing-function: ease-in;
-    -webkit-transition-delay: 100ms;
 
-    -moz-transition-property: background;
-    -moz-transition-duration: 300ms;
-    -moz-transition-timing-function: ease-in;
-    -moz-transition-delay: 100ms;
-
-    -o-transition-property: background;
-    -o-transition-duration: 300ms;
-    -o-transition-timing-function: ease-in;
-    -o-transition-delay: 100ms;
-
-    transition-property: background;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in;
-    transition-delay: 100ms;
-
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     ion-slides {
@@ -93,7 +58,6 @@ page-onboarding {
     .Logo {
         width:60vw; /* you can use % */
         height: auto;
-
         // position: relative;
         // bottom: 5vh;
         
@@ -148,7 +112,7 @@ page-onboarding {
     .ButtonWordBlack {
         font-size: 6vw;
         font-weight: 2px;
-        color: #2A3524;
+        color: #08B2A5;
         text-transform: capitalize;
     }
     
@@ -157,6 +121,25 @@ page-onboarding {
         // width: 50vw;
         margin: auto;
         margin-top: 5vh;
+        position: relative;
+        top: 10vh;
     }
+
+    .textPosition{
+        position: relative;
+        bottom: 10vh;
+    }
+
+    .headText{
+        color: white;
+        font-weight: 600;
+        font-size: 7vw;
+    }
+
+    .contentText {
+        color: white;
+        font-size: 5vw;
+    }
+    
 
 }

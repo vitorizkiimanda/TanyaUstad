@@ -3,7 +3,7 @@
 
 <ion-content class="background" padding>
 
-  <img src="assets/pict/MuserLogo.png" class='Logo'>
+  <img src="assets/pict/Logo.png" class='Logo'>
   
   <form #loginForm="ngForm" novalidate>
 		<ion-list >
@@ -43,7 +43,7 @@
 		<!--ini buat mock up-->
 		<ion-row>
 			<ion-col>
-				<button class="ButtonMasuk" color="dark" ion-button (click)="masuk(loginForm)" block><p class="ButtonWord">Masuk</p></button>
+				<button class="ButtonMasuk" color="ustadGreen" ion-button (click)="masuk(loginForm)" block><p class="ButtonWord">Masuk</p></button>
 			</ion-col>
 		</ion-row>
 
@@ -62,16 +62,16 @@
 						<font color="white">Tidak punya akun?</font>
 						<a class="Link" (click)="signUp()"> Buat akun.</a>
 
-					<ion-item></ion-item>
+					<!-- <ion-item></ion-item> -->
 					</p>
 					
 				</ion-col>
 			</ion-row>
-			<ion-row>
+			<!-- <ion-row>
 				<ion-col>
 					<button class="ButtonMasuk" color="light" ion-button (click)="Guest()" block><p class="ButtonWordBlack">Guest</p></button>
 				</ion-col>
-			</ion-row>
+			</ion-row> -->
 			<!--<ion-row>
 				<ion-col text-center><a><font color="black"></font><a (click)="lupaPassword()">Lupa password.</a></a></ion-col>
 			</ion-row>-->
