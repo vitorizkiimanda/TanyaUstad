@@ -11,5 +11,60 @@ page-video {
     .Back{
         font-size: 7vw;
     }
+
+
+    .pictVideo{
+        width: 100vw;
+        // height: 50vw;
+    }
+
+    .nameVideo{
+        color: $dark;
+        // width: 80%;
+        padding: 2vw 4vw 0vw 4vw;
+        font-size: 5vw;
+        text-transform: uppercase;
+        font-weight: 450;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .infoVideo{
+        color: gray;
+        padding: 0vw 4vw 5vw 4vw;
+        font-size: 4vw;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .descVideo{
+        color: gray;
+        padding: 2vw 6vw;
+        font-size: 4vw;
+        text-align: justify;
+    }
+
+
+    //footer
+    .buttonSize{
+        color:gray;
+        font-size: 5vw;
+    }
+    .prevButton{
+        position: absolute;
+        bottom: 2vw;
+        left: 1vw;
+    }
+    .nextButton{
+        position: absolute;
+        bottom: 2vw;
+        right: 1vw;
+    }
     
 }

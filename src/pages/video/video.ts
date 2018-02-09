@@ -28,7 +28,7 @@ export class VideoPage {
 
     // console.log(video);
 
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://156.67.218.250:81'+this.url)
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/kqrIimq4m14')
 
     console.log(this.url);
   }

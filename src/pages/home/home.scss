@@ -33,6 +33,46 @@ page-home {
     }
     //slider ^^^
 
+    //card
+    .cardVideo{
+        width: 100vw;
+        background-color: white;
+        // border-bottom: 2px solid rgba(0,0,0,0.5);
+    }
+
+    .pictVideo{
+        width: 100vw;
+        // height: 50vw;
+    }
+
+    .nameVideo{
+        color: $dark;
+        // width: 80%;
+        padding: 2vw 4vw 0vw 4vw;
+        font-size: 5vw;
+        text-transform: uppercase;
+        font-weight: 450;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .infoVideo{
+        color: gray;
+        padding: 0vw 4vw 5vw 4vw;
+        font-size: 4vw;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+
+
+
     .ButtonWord{
         font-size: 5vw;
         color: white;
