@@ -7,6 +7,8 @@ import { Data } from '../../providers/data';
 
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ChatDetailPage } from '../chat-detail/chat-detail';
+import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 @Component({
   selector: 'page-chat',
@@ -23,6 +25,7 @@ export class ChatPage {
     public data: Data,
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
+    private nativePageTransitions: NativePageTransitions,
     public http: Http) {
 
       this.data.getData().then((data) => {
@@ -78,6 +81,12 @@ export class ChatPage {
         console.log("error");
       }
     });
+  }
+
+
+  gotoDetail(){
+    this.nativePageTransitions.fade(null);
+    this.navCtrl.push(ChatDetailPage);
   }
 
 }

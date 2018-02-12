@@ -1,0 +1,109 @@
+page-chat-detail {
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    .invisibleButton {
+        height:10px;
+        width:60px;
+    }
+
+    .chatCard{
+        width: 100vw;
+        margin: 0 0 5vh 0;
+    }
+
+    .inputText{
+        
+        font-size: 4vw;
+    }
+
+    .IconSend{
+        position: absolute;
+        bottom: 2vh;        
+    }
+
+    .IconSendSize{
+        font-size: 6vw;
+    }
+
+    .footerBackground{
+
+        background-color: white;
+        
+        border-top: 2px solid rgba(0,0,0,0.2);
+    }
+
+
+
+    /* CSS talk bubble */
+    .talk-bubble-left {
+        margin: 20px 2vw;
+        display: inline-block;
+        position: relative;
+        max-width: 85vw;
+        height: auto;
+        background-color: rgb(173, 218, 214);
+        border-radius: 5%; 
+    }
+
+    .talk-bubble-right {
+        float: right;
+        margin: 0px 2vw 20px 2vw;
+        display: inline-block;
+        position: relative;
+        max-width: 85vw;
+        height: auto;
+        background-color: rgb(142, 213, 207);
+        border-radius: 5%;
+    }
+/*Right triangle, placed bottom left side slightly in*/
+
+    .tri-right.btm-left:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0px;
+        right: auto;
+        top: auto;
+        bottom: -10px;
+        border: 12px solid;
+        border-color: transparent transparent transparent rgb(173, 218, 214);
+    }
+
+
+    .tri-right.btm-right:after{
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: auto;
+        right: 0px;
+        bottom: -10px;
+        border: 12px solid;
+        border-color: rgb(142, 213, 207) rgb(142, 213, 207) transparent transparent;
+    }
+
+
+
+/* talk bubble contents */
+    .talktext{
+        padding: 3vw;
+        text-align: left;
+        line-height: 7vw;
+        font-size: 4vw;
+        font-weight: 400;
+    }
+    .talktext p{
+    /* remove webkit p margins */
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    }
+
+
+}

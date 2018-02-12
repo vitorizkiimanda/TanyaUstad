@@ -7,6 +7,7 @@ import { Data } from '../../providers/data';
 
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { WallpaperDetailPage } from '../wallpaper-detail/wallpaper-detail';
 
 @Component({
   selector: 'page-wallpaper',
@@ -95,6 +96,11 @@ export class WallpaperPage {
         // this.choosenName = this.images[0].name;
         console.log(this.choosenSource1);
       
+  }
+
+
+  gotoDetail(){
+    this.navCtrl.push(WallpaperDetailPage);
   }
 
 }

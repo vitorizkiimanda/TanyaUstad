@@ -1,6 +1,7 @@
 page-profil {
     .background {
-        background-color: rgb(47, 151, 236);
+        
+        background: linear-gradient(#2387A4, #4AAFBE);
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -24,6 +25,26 @@ page-profil {
         display: block;
         margin-left: auto;
         margin-right: auto
+    }
+
+    .photoprofile{
+        position: relative;
+        .crcl {
+            position: absolute;
+            margin-left: 55%;
+            margin-top: 20%;
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            border-radius: 75px;
+        }
+        .editIcon{
+            font-size: 4vw;
+            position: absolute;
+            margin-left: 67%;
+            margin-top: 25%;
+            color: white;
+        }
     }
 
 
@@ -85,9 +106,9 @@ page-profil {
         text-transform: capitalize;
     }
 
-    .ButtonWordBlack {
+    .ButtonWord {
         font-size: 5vw;
-        color: #2A3524;
+        color: white    ;
         text-transform: capitalize;
     }
 }

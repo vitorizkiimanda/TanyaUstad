@@ -24,6 +24,9 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { VideoPage } from '../pages/video/video';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { WallpaperDetailPage } from '../pages/wallpaper-detail/wallpaper-detail';
+import { ChatDetailPage } from '../pages/chat-detail/chat-detail';
+import { Autosize } from '../directives/autosize/autosize';
 
 let storage = new Storage({});
 
@@ -46,13 +49,20 @@ console.log(storage.get('token'));
     HomePage,
     ListPage,
     ChatPage,
+    ChatDetailPage,
     EventsPage,
     LoginPage,
     OnboardingPage,
     SignupPage,
     ProfilPage,
     VideoPage,
-    WallpaperPage
+    WallpaperPage,
+    WallpaperDetailPage,
+
+
+
+    Autosize
+
   ],
   imports: [
     BrowserModule,
@@ -66,13 +76,15 @@ console.log(storage.get('token'));
     HomePage,
     ListPage,
     ChatPage,
+    ChatDetailPage,
     EventsPage,
     LoginPage,
     OnboardingPage,
     SignupPage,
     ProfilPage,
     VideoPage,
-    WallpaperPage
+    WallpaperPage,
+    WallpaperDetailPage
   ],
   providers: [
     StatusBar,

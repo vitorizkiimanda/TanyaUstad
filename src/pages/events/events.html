@@ -7,10 +7,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="background" padding>
-  <div class="EventsCard" *ngFor="let event of events">
-    <img class="event-image" src="http://156.67.218.250:81{{event.picture}}"/>
+<ion-content class="background">
 
+  <div class="cardVideo" (click)="gotoDetail(event)" *ngFor="let event of events">
+    <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{event.picture}}"/>
     <div class="EventsContent">
       <p class="wordContent"><ion-icon name="md-calendar" class='iconContent' color="dark"></ion-icon> {{event.created_at}}</p>
 

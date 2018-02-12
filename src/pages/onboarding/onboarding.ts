@@ -5,6 +5,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
+import { SignupPage } from '../signup/signup';
 
 
 import { Http } from '@angular/http';
@@ -65,6 +66,11 @@ export class OnboardingPage {
   Login() {
     this.nativePageTransitions.fade(null);
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  Signup(){
+    this.nativePageTransitions.fade(null);
+    this.navCtrl.setRoot(SignupPage);
   }
 
   Guest(){

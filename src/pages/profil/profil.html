@@ -10,8 +10,13 @@
   
   <ion-content class="background" *ngIf="role=='user'">
     
-      <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict" (click)="updatePicture()"/>
-      <img [src]="img" *ngIf="img" class="Pict" (click)="updatePicture()"/>
+      
+
+    <div class="photoprofile" (click)="updatePicture()">
+      <ion-icon name="camera" class="editIcon"></ion-icon>
+      <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict"/>
+      <img [src]="img" *ngIf="img" class="Pict"/>
+    </div>
   
   
     <ion-item padding-right text-wrap>
@@ -30,13 +35,13 @@
       <p *ngIf="!hp" class="Konten">-</p>
       
     </ion-item>
-    <ion-item padding-right text-wrap>
+    <!-- <ion-item padding-right text-wrap>
       <ion-icon name="md-calendar" item-left class="Icon"></ion-icon>
       <p class="Head">Tanggal Ulang Tahun</p>
       <p *ngIf="birthdate" class="Konten">{{birthdate}}</p>
       <p *ngIf="!birthdate" class="Konten">-</p>
 
-    </ion-item>
+    </ion-item> -->
     <ion-item padding-right text-wrap>
       <!-- <ion-icon name="md-female" *ngIf='gender=="male"' item-left class="Icon"></ion-icon> -->
       <ion-icon name="md-transgender" item-left class="Icon"></ion-icon>
@@ -61,7 +66,7 @@
   
     <ion-item padding-left-right>
       <!-- <button class='Button' color="muserBlack" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button> -->
-      <button class='Button' color="light" ion-button block (click)='logOut()'><p class="ButtonWordBlack">Keluar Akun</p></button>
+      <button class='Button' color="danger" ion-button block (click)='logOut()'><p class="ButtonWord">Keluar Akun</p></button>
     </ion-item>
   
   </ion-content>

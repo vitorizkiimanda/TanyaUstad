@@ -72,6 +72,9 @@ export class LoginPage {
             this.data.token(response.token);   
             this.data.login(response.user,"user");//ke lokal
             this.createUser("user");
+
+            this.data.session(input);
+
             this.Login();
             loading.dismiss();
           }
@@ -84,9 +87,10 @@ export class LoginPage {
               });
               alert.present();
           }
-        //apilogin        
   
       });
+      //apilogin        
+  
       }
       else{
   

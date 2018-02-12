@@ -9,6 +9,8 @@ import { MyApp } from '../../app/app.component';
 
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { ActionSheetController } from 'ionic-angular/components/action-sheet/action-sheet-controller';
 
 @Component({
   selector: 'page-profil',
@@ -32,6 +34,8 @@ export class ProfilPage {
     public navParams: NavParams,
     private nativePageTransitions: NativePageTransitions,
     private screenOrientation: ScreenOrientation,
+    public alertCtrl: AlertController,
+    public actionSheetCtrl : ActionSheetController,
     public data: Data) {
 
       this.data.getData().then((data) => {
@@ -60,9 +64,32 @@ export class ProfilPage {
   }
 
   logOut(){
-    this.data.logout();
-    this.nativePageTransitions.fade(null);
-    this.navCtrl.setRoot(MyApp);
+
+    let confirm = this.alertCtrl.create({
+      title: 'Anda Yakin?',
+      message: 'Seluruh data yang belum tersimpan akan hilang.',
+      buttons: [
+        {
+          text: 'Batal',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Keluar',
+          handler: () => {
+            console.log('Agree clicked');
+            this.data.logout();  //apus storage cache local    
+            this.nativePageTransitions.fade(null);
+            this.navCtrl.setRoot(MyApp);
+          }
+        }
+      ]
+    });
+      confirm.present();
+
+
+    
   }
 
   updatePicture(){

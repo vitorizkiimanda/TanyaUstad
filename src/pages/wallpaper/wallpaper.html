@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="background no-scroll">
+<!-- <ion-content class="background no-scroll">
   <p class="choosenName">{{choosenName}}</p>
   <ion-slides pager>
 
@@ -24,7 +24,6 @@
     </ion-slide>
 
   </ion-slides>
-  <!-- <img class="choosen" src="http://156.67.218.250:81{{choosenSource}}"/> -->
 
 
   <ion-scroll scrollX="true" style="height: 500px" direction="x">
@@ -33,4 +32,22 @@
     </span>
   </ion-scroll>
   
+</ion-content> -->
+
+<ion-content>
+  <div class="cardVideo" (click)="gotoDetail()">
+    <div class="nameVideo">
+      Aa Gym
+    </div>
+    <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
+  </div>
+
+
+  <div class="cardVideo" (click)="gotoDetail()">
+    <div class="nameVideo">
+      Aa Gym
+    </div>
+    <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
+  </div>
+
 </ion-content>

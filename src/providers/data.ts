@@ -17,6 +17,16 @@ export class Data {
     this.storage.set('token', data);
   };
 
+  session(data : any){
+    this.storage.set('data_session', data);
+  }
+
+  getSession(){
+    return this.storage.get('data_session').then((value) => {
+      return value;
+    });
+  }
+
   login(data : any,role:string) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_data', data);

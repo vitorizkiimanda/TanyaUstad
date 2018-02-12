@@ -9,6 +9,7 @@ import { VideoPage } from '../video/video';
 
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -31,7 +32,39 @@ export class HomePage {
     public authHttp: AuthHttp,
     private nativePageTransitions: NativePageTransitions,
     private screenOrientation: ScreenOrientation,
-    public http: Http) {     
+    public http: Http) {
+      
+      
+      this.data.getSession().then((data) => {
+
+        if(data){
+
+          this.http.post(this.data.BASE_URL+"/signin",data).subscribe(data => {
+            let response = data.json();
+            if(response.status==true){
+              console.log(response);     
+
+              this.data.logout();
+              this.data.token(response.token);   
+              this.data.login(response.user,"user");//ke lokal
+  
+            }
+            else {
+              this.navCtrl.setRoot(LoginPage);
+            }
+    
+        });
+        //apilogin
+        console.log("update token");
+
+        }
+        
+
+              
+
+
+      })
+
 
       this.getVideo();
       this.getWallpaper();

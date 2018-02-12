@@ -7,21 +7,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="background" padding>
+<ion-content class="background">
 
-  <div text-wrap *ngFor="let data of chats" >
-      <div *ngIf="data.id_user==user" class="talk-bubble-left tri-right btm-left">
-        <div class="talktext">
-          <p class="chatContent">{{data.description}}</p>
+  <div class="card" (click)="gotoDetail()">
+    <ion-row no-padding>
+      <ion-col col-2 no-padding text-center>
+        <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
+      </ion-col>
+      <ion-col col-8 no-padding class="border">
+        <div class="sender">
+          Aa Gym
         </div>
-      </div>
-
-      <div *ngIf="data.id_user!=user" text-right class="talk-bubble-right tri-right btm-right" text-right>
-          <div class="talktext">
-            <p class="chatContent">{{data.description}}</p>
-          </div>
-          <br>
-      </div>
+        <div class="content">
+          Lorem ipsum dolor sit amet
+        </div>
+      </ion-col>
+      <ion-col col-2 no-padding class="border2">
+        <div class="date">
+          Just now
+        </div>
+      </ion-col>
+    </ion-row>
   </div>
+
+  
   
 </ion-content>
