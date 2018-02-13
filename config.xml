@@ -86,4 +86,5 @@
     <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
 </widget>

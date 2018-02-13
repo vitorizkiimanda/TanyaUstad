@@ -53,7 +53,8 @@
     <ion-item padding-right text-wrap>
       <ion-icon name="md-heart" item-left class="Icon"></ion-icon>
       <p class="Head">Status</p>
-      <p *ngIf="status_kawin" class="Konten">{{status_kawin}}</p>
+      <p *ngIf="status_kawin=='1'" class="Konten">Belum Kawin</p>
+      <p *ngIf="status_kawin=='2'" class="Konten">Kawin</p>
       <p *ngIf="!status_kawin" class="Konten">-</p>
     </ion-item>
     <ion-item padding-right text-wrap>
@@ -65,13 +66,13 @@
     </ion-item>
   
     <ion-item padding-left-right>
-      <!-- <button class='Button' color="muserBlack" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button> -->
+      <button class='Button' color="light" ion-button block (click)='editProfil()'><p class="ButtonWordGreen">Sunting Profil</p></button>
       <button class='Button' color="danger" ion-button block (click)='logOut()'><p class="ButtonWord">Keluar Akun</p></button>
     </ion-item>
   
   </ion-content>
 
-  <ion-content class="background" *ngIf="role=='guest'">
+  <!-- <ion-content class="background" *ngIf="role=='guest'">
     
     <img src="assets/pict/Profil.png" class="Pict"/>
 
@@ -82,7 +83,7 @@
 
   <ion-item no-lines padding-left-right>
     <button class='Button' color="light" ion-button block (click)='logOut()'><p class="ButtonWordBlack">Masuk</p></button>
-  </ion-item>
+  </ion-item> 
 
-</ion-content>
+</ion-content>-->
   

@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar color="muserYellow" text-center>
+      <ion-title><span class="wordNavbar">Sunting Profil</span><button ion-button clear class="invisibleButton"></button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+<ion-content padding>
+  <form #editProfileForm="ngForm" novalidate>
+    <ion-list >
+      <!-- input nama -->
+      <ion-item>
+        <ion-label floating>Nama</ion-label>
+        <ion-input class="Head2" [(ngModel)]="name" name="nama" type="string" #user="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <!-- email -->
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input class="Head2" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+      
+      <!-- nomor telepon -->
+      <ion-item>
+        <ion-label floating>Nomor Telepon</ion-label>
+        <ion-input class="Head2" [(ngModel)]="hp" name="hp" type="number" #user="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+      
+      <!-- alamat -->
+      <ion-item>
+        <ion-label floating>Alamat</ion-label>
+        <ion-textarea autosize class="Head2" [(ngModel)]="domisili" name="domisili" type="string" #user="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <button class="ButtonMasuk" color="ustadGreen" ion-button (click)="saveProfil(editProfileForm)" block><p class="ButtonWord">Simpan</p></button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

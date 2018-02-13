@@ -27,6 +27,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { WallpaperDetailPage } from '../pages/wallpaper-detail/wallpaper-detail';
 import { ChatDetailPage } from '../pages/chat-detail/chat-detail';
 import { Autosize } from '../directives/autosize/autosize';
+import { Camera } from '@ionic-native/camera';
+import { ProfileEditPage } from '../pages/profile-edit/profile-edit';
 
 let storage = new Storage({});
 
@@ -55,6 +57,7 @@ console.log(storage.get('token'));
     OnboardingPage,
     SignupPage,
     ProfilPage,
+    ProfileEditPage,
     VideoPage,
     WallpaperPage,
     WallpaperDetailPage,
@@ -82,6 +85,7 @@ console.log(storage.get('token'));
     OnboardingPage,
     SignupPage,
     ProfilPage,
+    ProfileEditPage,
     VideoPage,
     WallpaperPage,
     WallpaperDetailPage
@@ -99,6 +103,7 @@ console.log(storage.get('token'));
     ScreenOrientation,
 
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
