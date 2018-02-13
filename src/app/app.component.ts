@@ -42,7 +42,7 @@ export class MyApp {
         console.log('Welcome', user, 'at');
         if(user=='user'){
 
-          console.log('ini role utama :' + this.role);
+          console.log('ini role utama :' + user);
           this.pages = [
             { title: 'Home', component: HomePage },
             { title: 'Wallpaper', component: WallpaperPage },
@@ -54,7 +54,7 @@ export class MyApp {
         }
         else {
     
-          console.log('ini role utama :' + this.role);
+          console.log('ini role utama :' + user);
           this.pages = [
             { title: 'Home', component: HomePage },
             { title: 'Wallpaper', component: WallpaperPage },
@@ -82,7 +82,7 @@ export class MyApp {
       if(value){
 
         this.data.getRole().then((data) => {
-          console.log(data);
+          console.log("dari storage"+data);
           this.events.publish('user:created', data);
         })
 

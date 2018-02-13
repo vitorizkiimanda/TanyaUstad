@@ -42,11 +42,22 @@ export class HomePage {
           this.http.post(this.data.BASE_URL+"/signin",data).subscribe(data => {
             let response = data.json();
             if(response.status==true){
+
+
+              this.data.getRole().then((value)=>{
+                if(value=="guest"){
+                  this.data.logout();
+                  this.data.token(response.token);   
+                  this.data.login(response.user,"guest");//ke lokal
+                }
+                else{
+                  this.data.logout();
+                  this.data.token(response.token);   
+                  this.data.login(response.user,"user");//ke lokal
+                }
+              })
               console.log(response);     
 
-              this.data.logout();
-              this.data.token(response.token);   
-              this.data.login(response.user,"user");//ke lokal
   
             }
             else {
