@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="muserYellow">
-      <ion-title text-right><span class="wordNavbar">Video</span></ion-title>
+      <ion-title text-right><span class="wordNavbar">Wallpaper</span></ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -8,16 +8,31 @@
 <ion-content>
     <div class="cardVideo">
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/> -->
-      <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
+      <ion-slides pager>
+
+        <ion-slide>
+          <img class="slide-image" src="http://156.67.218.250:81{{picture}}"/>
+        </ion-slide>
+    
+        <ion-slide>
+          <img class="slide-image" src="http://156.67.218.250:81{{picture2}}"/>
+        </ion-slide>
+    
+        <ion-slide>
+          <img class="slide-image" src="http://156.67.218.250:81{{picture3}}"/>
+        </ion-slide>
+    
+      </ion-slides>
+      <!-- <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{picture}}"/> -->
       <div class="nameVideo">
-        Aa Gym
+        {{name}}
       </div>
       <div class="infoVideo">
-        200 views
+        {{status}} views
       </div>
     </div>
     <div class="descVideo">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim sapien tortor, eget viverra urna finibus eu. Sed at posuere enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      {{description}}
     </div>
 
     <div class="prevButton">

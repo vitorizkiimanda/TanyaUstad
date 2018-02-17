@@ -12,18 +12,20 @@
         width="100%" 
         height="auto"
         frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
         allowfullscreen
         [src]="url">
     </iframe>
       <div class="nameVideo">
-        Amalan yang pahalanya terus mengalir
+        {{name}}
       </div>
       <div class="infoVideo">
-        AA GYM - 200 views
+        {{user}} - {{status}} views
       </div>
     </div>
     <div class="descVideo">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim sapien tortor, eget viverra urna finibus eu. Sed at posuere enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      {{description}}
     </div>
 
     <div class="prevButton">

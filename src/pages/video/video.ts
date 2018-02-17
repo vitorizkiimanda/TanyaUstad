@@ -13,6 +13,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VideoPage {
 
   url:any;
+  name:any;
+  user:any;
+  status:any;
+  description:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -21,14 +25,19 @@ export class VideoPage {
     private screenOrientation: ScreenOrientation,
     private sanitizer: DomSanitizer) {
 
-    // let video = this.navParams.data;
+    let video = this.navParams.data;
 
-    // this.url = video.url;
+    this.name = video.name;
+    this.user = video.user;
+    this.status = video.status;
+    this.description = video.description;
+    this.url = video.url;
 	
 
     // console.log(video);
 
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/kqrIimq4m14')
+    // this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/kqrIimq4m14')
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://156.67.218.250:81'+this.url);
 
     console.log(this.url);
   }

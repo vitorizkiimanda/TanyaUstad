@@ -62,36 +62,14 @@
     </ion-row>
   </ion-grid> -->
 
-  <div class="cardVideo" (click)="gotoVideo()">
-    <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
+  <div class="cardVideo" (click)="gotoVideo(data)" *ngFor="let data of video">
+    <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{data.picture}}"/>
     <div class="nameVideo">
-      Amalan yang pahalanya terus mengalir
+      {{data.name}}
     </div>
     <div class="infoVideo">
-      AA GYM - 200 views
+      {{data.user}} - {{data.status}} views
     </div>
   </div>
-
-  <div class="cardVideo" (click)="gotoVideo()">
-    <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
-    <div class="nameVideo">
-      Amalan yang pahalanya terus mengalir
-    </div>
-    <div class="infoVideo">
-      AA GYM - 200 views
-    </div>
-  </div>
-  
-  <div class="cardVideo" (click)="gotoVideo()">
-    <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/>
-    <div class="nameVideo">
-      Amalan yang pahalanya terus mengalir
-    </div>
-    <div class="infoVideo">
-      AA GYM - 200 views
-    </div>
-  </div>
-
-
   
 </ion-content>

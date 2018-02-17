@@ -65,42 +65,42 @@ export class WallpaperPage {
     this.choosenName = data.name;
   }
 
-  // getWallpaper() {
-  //   this.authHttp.get(this.data.BASE_URL+"/getreviews").subscribe(data => {
-  //     let response = data.json();
-  //     console.log(response);
-  //     if(response.status==true){
-
-  //       this.images=response.reviews;    
-  //       this.choosenSource1 = this.images[0].picture;
-  //       this.choosenSource2 = this.images[0].picture2;
-  //       this.choosenSource3 = this.images[0].picture3;
-  //       this.choosenName = this.images[0].name;
-  //       console.log(this.images);
-  //     }
-  //     else{
-  //       //alert gagal fetch data
-  //       console.log("error");
-  //     }
-  //   });
-  // }
-
   getWallpaper() {
+    this.authHttp.get(this.data.BASE_URL+"/getreviews").subscribe(data => {
+      let response = data.json();
+      console.log(response);
+      if(response.status==true){
+
+        this.images=response.reviews;    
+        // this.choosenSource1 = this.images[0].picture;
+        // this.choosenSource2 = this.images[0].picture2;
+        // this.choosenSource3 = this.images[0].picture3;
+        // this.choosenName = this.images[0].name;
+        console.log(this.images);
+      }
+      else{
+        //alert gagal fetch data
+        console.log("error");
+      }
+    });
+  }
+
+  // getWallpaper() {
 
     
 
 
-        this.choosenSource1 = this.images[0].picture;
-        this.choosenSource2 = this.images[0].picture2;
-        this.choosenSource3 = this.images[0].picture3;
-        // this.choosenName = this.images[0].name;
-        console.log(this.choosenSource1);
+  //       this.choosenSource1 = this.images[0].picture;
+  //       this.choosenSource2 = this.images[0].picture2;
+  //       this.choosenSource3 = this.images[0].picture3;
+  //       // this.choosenName = this.images[0].name;
+  //       console.log(this.choosenSource1);
       
-  }
+  // }
 
 
-  gotoDetail(){
-    this.navCtrl.push(WallpaperDetailPage);
+  gotoDetail(data){
+    this.navCtrl.push(WallpaperDetailPage,data);
   }
 
 }
