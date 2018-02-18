@@ -19,7 +19,7 @@ export class ChatDetailPage {
 
   sendChat(keyCode){
 
-    let regex = /^[\r\n]*$/;
+    let regex = /^[\r\n/\s/g]*$/;
 
     if(keyCode == 13 && (regex.test(this.message) == false) && this.message!=null){
       alert(this.message);

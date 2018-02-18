@@ -68,13 +68,12 @@ export class ChatPage {
 
 
   getChats() {
-    this.authHttp.get(this.data.BASE_URL+"/getusers").subscribe(data => {
+    this.authHttp.get(this.data.BASE_URL+"/getinbox").subscribe(data => {
       let response = data.json();
       console.log(response.inbox);
       if(response.status==true){
 
         this.chats=response.inbox;
-        console.log('chats:' +this.chats);
       }
       else{
         //alert gagal fetch data
