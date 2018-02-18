@@ -8,15 +8,19 @@
 <ion-content>
     <div class="cardVideo">
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/> -->
-      <iframe
-        width="100%" 
-        height="auto"
-        frameborder="0"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
-        [src]="url">
-    </iframe>
+      <video width="100%" height="auto" controls>
+        <source [src]="url" type="video/mp4">
+        Video Error
+      </video>
+      <!-- <iframe
+          width="100%" 
+          height="auto"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+          [src]="url">
+      </iframe> -->
       <div class="nameVideo">
         {{name}}
       </div>

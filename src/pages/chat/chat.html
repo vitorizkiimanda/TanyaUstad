@@ -9,24 +9,30 @@
 
 <ion-content class="background">
 
-  <div class="card" (click)="gotoDetail()">
+  <ion-fab right bottom>
+    <button color="muserYellow" ion-fab (click)="gotoNewMessage()">
+      <ion-icon  name="md-chatbubbles"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div class="card" (click)="gotoDetail(data)" *ngFor="let data of chats">
     <ion-row no-padding>
-      <ion-col col-2 no-padding text-center>
-        <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
+      <ion-col col-3 no-padding text-center>
+        <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{data.sender_pict}}"/>
       </ion-col>
       <ion-col col-8 no-padding class="border">
         <div class="sender">
-          Aa Gym
+          {{data.sender_name}}
         </div>
         <div class="content">
-          Lorem ipsum dolor sit amet
+          {{data.title}}
         </div>
       </ion-col>
-      <ion-col col-2 no-padding class="border2">
+      <!-- <ion-col col-2 no-padding class="border2">
         <div class="date">
           Just now
         </div>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </div>
 

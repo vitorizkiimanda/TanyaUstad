@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-navbar color="muserYellow" text-center>
+        <ion-title><span class="wordNavbar">New Chat</span><button ion-button clear class="invisibleButton"></button></ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content>
+
+  <div class="card" (click)="gotoDetail(data)" *ngFor="let data of chats">
+    <ion-row no-padding>
+      <ion-col col-3 no-padding text-center>
+        <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
+      </ion-col>
+      <ion-col col-8 no-padding class="border">
+        <div class="sender">
+          {{data.name}}
+        </div>
+        <div class="content">
+          {{data.email}}
+        </div>
+      </ion-col>
+      <!-- <ion-col col-2 no-padding class="border2">
+        <div class="date">
+          Just now
+        </div>
+      </ion-col> -->
+    </ion-row>
+  </div>
+
+</ion-content>

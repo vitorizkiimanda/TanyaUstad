@@ -9,6 +9,7 @@ import { Data } from '../../providers/data';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ChatDetailPage } from '../chat-detail/chat-detail';
 import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { ChatNewPage } from '../chat-new/chat-new';
 
 @Component({
   selector: 'page-chat',
@@ -82,10 +83,15 @@ export class ChatPage {
     });
   }
 
-
-  gotoDetail(){
+  gotoNewMessage(){
     this.nativePageTransitions.fade(null);
-    this.navCtrl.push(ChatDetailPage);
+    this.navCtrl.push(ChatNewPage);
+  }
+
+
+  gotoDetail(data){
+    this.nativePageTransitions.fade(null);
+    this.navCtrl.push(ChatDetailPage, data);
   }
 
 }
