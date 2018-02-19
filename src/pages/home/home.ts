@@ -35,56 +35,61 @@ export class HomePage {
     public http: Http) {
       
       
-      this.data.getSession().then((data) => {
-
-        if(data){
-
-          this.http.post(this.data.BASE_URL+"/signin",data).subscribe(data => {
-            let response = data.json();
-            if(response.status==true){
-
-
-              this.data.getRole().then((value)=>{
-                if(value=="guest"){
-                  this.data.logout();
-                  this.data.token(response.token);   
-                  this.data.login(response.user,"guest");//ke lokal
-                }
-                else{
-                  this.data.logout();
-                  this.data.token(response.token);   
-                  this.data.login(response.user,"user");//ke lokal
-                }
-              })
-              console.log(response);     
-
-  
-            }
-            else {
-              this.navCtrl.setRoot(LoginPage);
-            }
-    
-        });
-        //apilogin
-        console.log("update token");
-
-        }
-        
-
-              
-
-
-      })
-
-
+      
       this.getVideo();
       this.getWallpaper();
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad homePage');
+    this.updateToken();
+  }
+
+  updateToken(){
+    this.data.getSession().then((data) => {
+
+      if(data){
+
+        this.http.post(this.data.BASE_URL+"/signin",data).subscribe(data => {
+          let response = data.json();
+          if(response.status==true){
+
+
+            this.data.getRole().then((value)=>{
+              if(value=="guest"){
+                this.data.logout();
+                this.data.token(response.token);   
+                this.data.login(response.user,"guest");//ke lokal
+              }
+              else{
+                this.data.logout();
+                this.data.token(response.token);   
+                this.data.login(response.user,"user");//ke lokal
+              }
+            })
+            console.log(response);     
+
+
+          }
+          else {
+            this.navCtrl.setRoot(LoginPage);
+          }
+  
+      });
+      //apilogin
+      console.log("update token");
+
+      }
+      
+
+            
+
+
+    })
+
+
   }
 
   choose(category: string){

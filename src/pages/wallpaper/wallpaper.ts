@@ -29,32 +29,16 @@ export class WallpaperPage {
     public authHttp: AuthHttp,
     public http: Http) {
 
-      this.images = [
-        {
-          picture: "assets/pict/1.jpg",
-          picture2: "assets/pict/2.jpg",
-          picture3: "assets/pict/3.jpg"
-          
-        },
-        {
-          picture: "assets/pict/4.jpg",
-          picture2: "assets/pict/5.jpg",
-          picture3: "assets/pict/6.jpg"
-        },
-        {
-          picture: "assets/pict/7.jpg",
-          picture2: "assets/pict/9.jpg",
-          picture3: "assets/pict/10.jpg"
-        }
-      ];  
+      
 
-      this.getWallpaper();
+      
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad WallpaperPage');
+    this.getWallpaper();
   }
 
   update(data) {

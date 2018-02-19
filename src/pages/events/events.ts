@@ -27,13 +27,14 @@ export class EventsPage {
     public http: Http,
     private nativePageTransitions: NativePageTransitions) {
 
-      this.getEvents();
+      
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad EventsPage');
+    this.getEvents();
   }
 
   getEvents() {
