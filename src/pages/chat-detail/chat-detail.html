@@ -23,11 +23,19 @@
       </div>
   </div> -->
 
+  <div id="chatMessages">
+    <div *ngFor="let data of chats" class="message">
+      <div [class]="data.id_receiver==id_receiver ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+        <div class="messageContent">{{data.title}}</div>
+      </div>
+    </div>
+  </div>
+
 
 
   
-  <div *ngFor="let data of chats">
-    <div>
+  <!-- <div *ngFor="let data of chats">
+    <div *ngIf="data.id_receiver==id_receiver">
         <div text-right class="talk-bubble-right tri-right btm-right" text-right>
             <div class="talktext">
               <p id="rightText" class="chatContent">{{data.title}}</p>
@@ -45,7 +53,7 @@
 
     <br>
 
-  </div>
+  </div> -->
 
 </ion-content>
 
