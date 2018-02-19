@@ -41,6 +41,12 @@ page-chat-detail {
 
 
     /* CSS talk bubble */
+
+    #rightText{
+        text-align: right;
+    }
+
+
     .talk-bubble-left {
         margin: 20px 2vw;
         display: inline-block;
@@ -52,8 +58,8 @@ page-chat-detail {
     }
 
     .talk-bubble-right {
-        float: right;
-        margin: 0px 2vw 20px 2vw;
+        float : right;
+        margin: 20px 2vw;
         display: inline-block;
         position: relative;
         max-width: 85vw;

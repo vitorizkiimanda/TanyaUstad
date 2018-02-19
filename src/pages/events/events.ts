@@ -7,6 +7,8 @@ import { Data } from '../../providers/data';
 
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { EventsDetailPage } from '../events-detail/events-detail';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 @Component({
   selector: 'page-events',
@@ -22,7 +24,8 @@ export class EventsPage {
     public data: Data,
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
-    public http: Http) {
+    public http: Http,
+    private nativePageTransitions: NativePageTransitions) {
 
       this.getEvents();
   }
@@ -47,6 +50,11 @@ export class EventsPage {
         console.log("error");
       }
     });
+  }
+
+  gotoDetail(data){
+    this.nativePageTransitions.fade(null);
+    this.navCtrl.push(EventsDetailPage, data);
   }
 
 }

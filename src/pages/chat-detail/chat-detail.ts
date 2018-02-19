@@ -28,7 +28,7 @@ export class ChatDetailPage {
 
     let temp = this.navParams.data;
     this.sender_name = temp.sender_name;
-    this.id_sender = temp.id_sender;
+    this.id_sender = temp.id_user;
     this.id_receiver = temp.id_receiver;
 
     this.getChats();
@@ -44,7 +44,7 @@ export class ChatDetailPage {
     let regex = /^[\r\n/\s/g]*$/;
 
     if(keyCode == 13 && (regex.test(this.message) == false) && this.message!=null){
-      alert(this.message);
+      // alert(this.message);
       this.postChat(this.message);
 
       this.message=null;
@@ -76,9 +76,9 @@ export class ChatDetailPage {
   }
 
   postChat(data) {
-    console.log("id post new chat:" + this.id_sender);
+    console.log("id post new chat:" + this.id_receiver);
     let input = {
-      id_receiver: this.id_sender, 
+      id_receiver: this.id_receiver, 
       title: data,
       description: ''
     };

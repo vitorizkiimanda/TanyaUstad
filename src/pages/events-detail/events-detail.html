@@ -1,0 +1,42 @@
+<ion-header>
+
+    <ion-navbar color="muserYellow" text-center>
+        <ion-title><span class="Title">Event Detail</span><button ion-button clear class="invisibleButton"></button></ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    
+    <img alt="Gambar Rusak" class="pictEvent" src="http://156.67.218.250:81{{picture}}"/>
+    <div class="nameEvent">
+      {{name}}
+    </div>
+    <div class="hostEvent">
+      Oleh {{penyelenggara}}
+    </div>
+    
+    <ion-item no-lines class="content" text-wrap>
+      <ion-icon name="md-calendar" item-left></ion-icon>
+      <p class="contentTitle">Tanggal & Waktu</p>
+      <p class="contentText">{{created_at}} </p>
+
+      <!-- <p class="contentText">04 Februari 2018 (07.00 WIB) - </p>
+      <p class="contentText">04 Februari 2018 (09.00 WIB)</p> -->
+    </ion-item>
+    
+    <ion-item no-lines class="content" text-wrap>
+      <ion-icon name="md-pin" item-left></ion-icon>
+      <p class="contentTitle">Lokasi</p>
+      <p class="contentText">{{address}}</p>
+    </ion-item>
+    
+    <ion-item no-lines class="content" text-wrap>
+      <ion-icon name="md-list-box" item-left></ion-icon>
+      <p class="contentTitle">Deskripsi</p>
+      <p class="contentText" style="text-align: justify">{{description}}</p>
+    </ion-item>
+  </ion-content>
+  
+  

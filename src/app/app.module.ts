@@ -30,6 +30,7 @@ import { Autosize } from '../directives/autosize/autosize';
 import { Camera } from '@ionic-native/camera';
 import { ProfileEditPage } from '../pages/profile-edit/profile-edit';
 import { ChatNewPage } from '../pages/chat-new/chat-new';
+import { EventsDetailPage } from '../pages/events-detail/events-detail';
 
 let storage = new Storage({});
 
@@ -55,6 +56,7 @@ console.log(storage.get('token'));
     ChatDetailPage,
     ChatNewPage,
     EventsPage,
+    EventsDetailPage,
     LoginPage,
     OnboardingPage,
     SignupPage,
@@ -84,6 +86,7 @@ console.log(storage.get('token'));
     ChatDetailPage,
     ChatNewPage,
     EventsPage,
+    EventsDetailPage,
     LoginPage,
     OnboardingPage,
     SignupPage,

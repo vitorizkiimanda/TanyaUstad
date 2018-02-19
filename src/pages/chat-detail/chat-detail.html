@@ -23,43 +23,30 @@
       </div>
   </div> -->
 
-  <div class="chatCard" text-wrap>
+
+
+  
+  <div *ngFor="let data of chats">
+    <div>
+        <div text-right class="talk-bubble-right tri-right btm-right" text-right>
+            <div class="talktext">
+              <p id="rightText" class="chatContent">{{data.title}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="data.id_receiver!=id_receiver" class="chatCard" text-wrap>
       <div  class="talk-bubble-left tri-right btm-left">
         <div class="talktext">
-          <p class="chatContent">kiri kiri kiri kiri kiri kirikirikirikirikirikiri kiri kiri kiri kiri kirikiri kiri kiri  kiri  kiri  kiri  kiri  kiri  kiri  kiri kiri kiri</p>
+          <p class="chatContent">{{data.title}}</p>
         </div>
       </div>
+    </div>
+
+    <br>
 
   </div>
 
-  <div class="chatCard" text-wrap>
-
-      <div text-right class="talk-bubble-right tri-right btm-right" text-right>
-          <div class="talktext">
-            <p class="chatContent">kanan kanan kanan kanan kanan kanan kanankanan kanankanankanan kanan kanan kanan kanan kanan kanankanankanankanankanankanankanan</p>
-          </div>
-          <br>
-      </div>
-  </div>
-
-  <div class="chatCard" text-wrap>
-      <div  class="talk-bubble-left tri-right btm-left">
-        <div class="talktext">
-          <p class="chatContent">kiri kiri kiri kiri kiri kirikirikirikirikirikiri kiri kiri kiri kiri kirikiri kiri kiri  kiri  kiri  kiri  kiri  kiri  kiri  kiri kiri kiri</p>
-        </div>
-      </div>
-
-  </div>
-
-  <div class="chatCard" text-wrap>
-
-      <div text-right class="talk-bubble-right tri-right btm-right" text-right>
-          <div class="talktext">
-            <p class="chatContent">kanan kanan kanan kanan kanan kanan kanankanan kanankanankanan kanan kanan kanan kanan kanan kanankanankanankanankanankanankanan</p>
-          </div>
-          <br>
-      </div>
-  </div>
 </ion-content>
 
 <ion-footer class="footerBackground" no-padding>

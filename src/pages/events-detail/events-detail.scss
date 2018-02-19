@@ -1,0 +1,58 @@
+page-events-detail {
+    .Title{
+        color: #f4f4f4;
+        font-size: 6vw;
+        font-weight: 700;
+
+
+        font-style: italic;
+    }
+    .invisibleButton {
+        height:10px;
+        width:60px;
+    }
+    
+    .pictEvent{
+        width: 100vw;
+        height: 55vw;
+    }
+
+    .nameEvent{
+        padding: 2vh 5vw 1vh 5vw;
+        font-size: 5.5vw;
+        font-weight: 500;
+        color: $dark;
+    }
+
+    .hostEvent{
+        padding: 0vh 5vw 3vh 5vw;
+        font-size: 4vw;
+        color: gray;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .contentTitle{
+        font-size: 5vw;
+        font-weight: 500;
+        color: $dark;
+    }
+
+    .contentText{
+        font-size: 4vw;
+    }
+
+    .ButtonMasuk {
+        height: 14vw !important;
+        width: 80vw;
+        margin: auto;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .ButtonWord {
+        font-size: 6vw;
+        font-weight: 2px;
+        color: white;
+        text-transform: capitalize;
+    }
+}

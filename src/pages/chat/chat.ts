@@ -34,7 +34,7 @@ export class ChatPage {
         console.log(this.user);
       })
 
-      this.getChats();
+      //this.getChats();
   
 
     // this.chats = [
@@ -61,10 +61,11 @@ export class ChatPage {
   
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad ChatPage');
+    this.getChats();
   }
 
 
