@@ -1,0 +1,140 @@
+page-chats-new-detail {
+    .wordNavbar{
+        color: #f4f4f4;
+        font-size: 7vw;
+        font-weight: 700;
+
+        font-style: italic;
+    }
+
+    .invisibleButton {
+        height:10px;
+        width:60px;
+    }
+
+    .chatCard{
+        width: 100vw;
+        margin: 0 0 5vh 0;
+    }
+
+    .inputText{
+        
+        font-size: 4vw;
+    }
+
+    .IconSend{
+        position: absolute;
+        bottom: 2vh;        
+    }
+
+    .IconSendSize{
+        font-size: 6vw;
+    }
+
+    .footerBackground{
+
+        background-color: white;
+        
+        border-top: 2px solid rgba(0,0,0,0.2);
+    }
+
+
+
+    // Chat bubble new
+    .innerMessage {
+		display: inline-block;
+		padding: 2vw;
+		background: rgb(173, 218, 214);
+		margin: 5px;
+		color: #222;
+        border-radius: 3px;
+        max-width: 85vw;
+	}
+	.innerMessage.messageRight {
+		background: rgb(142, 213, 207);
+	}
+	.username {
+		font-weight: bold;
+		font-size: 80%;
+	}
+	.message {
+        font-size: 5vw;
+        color: #222;        
+    }
+    .messageTime{
+        margin-top: 1vw;
+        font-size: 3vw;
+        color: #222;   
+    }
+	.elem button {
+	    border-radius: 0;
+	    margin: 0;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+	.elem {
+		position: relative;
+		min-width: 50px;
+	}
+	div#footer div.elem:first-child {
+	    flex-grow: 1;
+	}
+	div#footer {
+	    display: flex;
+	    flex-direction: row;
+	    align-items: stretch;
+	}
+
+	ion-input{
+		padding-left: 15px;
+		font-size: 125%;
+	}
+	ion-toolbar {
+		margin: 0;
+		padding: 0!important;
+	}
+	.message:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.messageLeft {
+		float: left;
+	}
+	.messageRight {
+		float: right;
+	}
+
+	.message.special .innerMessage .messageContent{
+		background: white;
+		display: inline-block;
+        padding: 0 10px;
+        color : #222;
+	}
+
+	.message.special .innerMessage:before{
+		content: '';
+		height: 2px;
+		background: #eee;
+		display: block;
+		top: 50%;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+	}
+
+	.message.special .innerMessage{
+		background: transparent;
+		color: black;
+		font-size: 80%;
+		width: 100%;
+		float: none;
+		text-align: center;
+		position: relative;
+    }
+
+}

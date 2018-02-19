@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="muserYellow" text-center>
+      <ion-title><span class="wordNavbar">{{sender_name}}</span><button ion-button clear class="invisibleButton"></button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<!-- <div text-wrap>
+    <div *ngIf="data.id_user==user" class="talk-bubble-left tri-right btm-left">
+      <div class="talktext">
+        <p class="chatContent">kiri</p>
+      </div>
+    </div>
+
+    <div *ngIf="data.id_user!=user" text-right class="talk-bubble-right tri-right btm-right" text-right>
+        <div class="talktext">
+          <p class="chatContent">kanan</p>
+        </div>
+        <br>
+    </div>
+</div> -->
+
+<div id="chatMessages">
+  <div *ngFor="let data of chats" class="message">
+    <div [class]="data.id_receiver==id_receiver ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+      <div class="messageContent">{{data.title}}</div>
+      <div text-right class="messageTime">{{(data.send_at)?.substring(11,19)}}</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div *ngFor="let data of chats">
+  <div *ngIf="data.id_receiver==id_receiver">
+      <div text-right class="talk-bubble-right tri-right btm-right" text-right>
+          <div class="talktext">
+            <p id="rightText" class="chatContent">{{data.title}}</p>
+          </div>
+      </div>
+  </div>
+
+  <div *ngIf="data.id_receiver!=id_receiver" class="chatCard" text-wrap>
+    <div  class="talk-bubble-left tri-right btm-left">
+      <div class="talktext">
+        <p class="chatContent">{{data.title}}</p>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+</div> -->
+
+</ion-content>
+
+<ion-footer class="footerBackground" no-padding>
+
+<ion-row no-padding>
+  <ion-col col-11 no-padding>
+    <ion-textarea (keypress)="sendChat($event.keyCode)" class="inputText" [(ngModel)]="message" name="message" placeholder="Text message.." type="text" #alamat="ngModel" required autosize></ion-textarea>
+  </ion-col>
+  <ion-col col-1 no-padding>
+    <span class="IconSend"><ion-icon  (click)="sendChat(13)" name="ios-arrow-forward-outline" class="IconSendSize"></ion-icon></span>
+  </ion-col>
+</ion-row>
+  
+  
+</ion-footer>

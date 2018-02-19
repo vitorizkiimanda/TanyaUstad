@@ -6,6 +6,7 @@ import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
 import { Data } from '../../providers/data';
 import { ChatDetailPage } from '../chat-detail/chat-detail';
+import { ChatsNewDetailPage } from '../chats-new-detail/chats-new-detail';
 
 
 @Component({
@@ -49,7 +50,8 @@ export class ChatNewPage {
 
   gotoDetail(data){
     this.nativePageTransitions.fade(null);
-    this.navCtrl.push(ChatDetailPage, data);
+    this.navCtrl.push(ChatsNewDetailPage, data);
+    console.log(data);
   }
 
 }

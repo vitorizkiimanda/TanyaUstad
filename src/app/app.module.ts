@@ -31,6 +31,7 @@ import { Camera } from '@ionic-native/camera';
 import { ProfileEditPage } from '../pages/profile-edit/profile-edit';
 import { ChatNewPage } from '../pages/chat-new/chat-new';
 import { EventsDetailPage } from '../pages/events-detail/events-detail';
+import { ChatsNewDetailPage } from '../pages/chats-new-detail/chats-new-detail';
 
 let storage = new Storage({});
 
@@ -55,6 +56,7 @@ console.log(storage.get('token'));
     ChatPage,
     ChatDetailPage,
     ChatNewPage,
+    ChatsNewDetailPage,
     EventsPage,
     EventsDetailPage,
     LoginPage,
@@ -85,6 +87,7 @@ console.log(storage.get('token'));
     ChatPage,
     ChatDetailPage,
     ChatNewPage,
+    ChatsNewDetailPage,
     EventsPage,
     EventsDetailPage,
     LoginPage,
