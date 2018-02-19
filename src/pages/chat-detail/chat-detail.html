@@ -27,6 +27,7 @@
     <div *ngFor="let data of chats" class="message">
       <div [class]="data.id_receiver==id_receiver ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
         <div class="messageContent">{{data.title}}</div>
+        <div text-right class="messageTime">{{(data.send_at)?.substring(11,19)}}</div>
       </div>
     </div>
   </div>

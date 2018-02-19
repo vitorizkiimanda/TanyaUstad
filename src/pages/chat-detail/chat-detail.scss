@@ -58,9 +58,14 @@ page-chat-detail {
 		font-size: 80%;
 	}
 	.message {
-        font-size: 120%;
+        font-size: 5vw;
         color: #222;        
-	}
+    }
+    .messageTime{
+        margin-top: 1vw;
+        font-size: 3vw;
+        color: #222;   
+    }
 	.elem button {
 	    border-radius: 0;
 	    margin: 0;
@@ -132,6 +137,7 @@ page-chat-detail {
 		position: relative;
     }
 
+    
 
 
 

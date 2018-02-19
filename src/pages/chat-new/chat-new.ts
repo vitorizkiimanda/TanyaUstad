@@ -24,11 +24,12 @@ export class ChatNewPage {
     private nativePageTransitions: NativePageTransitions,
     public http: Http) {
 
-      this.getAvailableChats();
+      
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad ChatNewPage');
+    this.getAvailableChats();
   }
 
   getAvailableChats() {
