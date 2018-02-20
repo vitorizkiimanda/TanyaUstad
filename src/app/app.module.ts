@@ -32,6 +32,8 @@ import { ProfileEditPage } from '../pages/profile-edit/profile-edit';
 import { ChatNewPage } from '../pages/chat-new/chat-new';
 import { EventsDetailPage } from '../pages/events-detail/events-detail';
 import { ChatsNewDetailPage } from '../pages/chats-new-detail/chats-new-detail';
+import { NspPage } from '../pages/nsp/nsp';
+import { NspDetailPage } from '../pages/nsp-detail/nsp-detail';
 
 let storage = new Storage({});
 
@@ -67,6 +69,8 @@ console.log(storage.get('token'));
     VideoPage,
     WallpaperPage,
     WallpaperDetailPage,
+    NspPage,
+    NspDetailPage,
 
 
 
@@ -97,7 +101,9 @@ console.log(storage.get('token'));
     ProfileEditPage,
     VideoPage,
     WallpaperPage,
-    WallpaperDetailPage
+    WallpaperDetailPage,
+    NspPage,
+    NspDetailPage
   ],
   providers: [
     StatusBar,

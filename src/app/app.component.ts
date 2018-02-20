@@ -15,6 +15,7 @@ import { EventsPage } from '../pages/events/events';
 import { ChatPage } from '../pages/chat/chat';
 import { ProfilPage } from '../pages/profil/profil';
 import { LoginPage } from '../pages/login/login';
+import { NspPage } from '../pages/nsp/nsp';
 
 @Component({
   templateUrl: 'app.html'
@@ -45,6 +46,7 @@ export class MyApp {
           console.log('ini role utama :' + user);
           this.pages = [
             { title: 'Home', component: HomePage },
+            { title: 'NSP', component: NspPage },
             { title: 'Wallpaper', component: WallpaperPage },
             { title: 'Events', component: EventsPage },
             { title: 'Chat', component: ChatPage },
@@ -57,6 +59,7 @@ export class MyApp {
           console.log('ini role utama :' + user);
           this.pages = [
             { title: 'Home', component: HomePage },
+            { title: 'NSP', component: NspPage },
             { title: 'Wallpaper', component: WallpaperPage },
             { title: 'Events', component: EventsPage },
             { title: 'Login', component: LoginPage }
