@@ -5,6 +5,9 @@ import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
+import { ActionSheetController } from 'ionic-angular/components/action-sheet/action-sheet-controller';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 @Component({
   selector: 'page-profile-edit',
   templateUrl: 'profile-edit.html',
@@ -22,6 +25,10 @@ export class ProfileEditPage {
   img:string;
   name:string;
   status_kawin:string;
+  password:string;
+
+  
+  validPhoto= false;
 
   constructor(
     public navCtrl: NavController, 
@@ -30,7 +37,9 @@ export class ProfileEditPage {
     private nativePageTransitions: NativePageTransitions,
     public alertCtrl: AlertController,
     public loadCtrl: LoadingController,
-    public http: Http) {
+    public http: Http,
+    public actionSheetCtrl : ActionSheetController,
+    private camera: Camera) {
 
     this.data.getData().then((data) => {
 
@@ -68,50 +77,51 @@ export class ProfileEditPage {
       
       loading.present();
 
-      
-      this.nativePageTransitions.fade(null);
-      this.navCtrl.pop();
-
-      loading.dismiss();
 
 
-
-      //api
-    //   let input = {
-    //     name: this.name,
-    //     email: this.email, 
-    //     hp: this.hp,
-    //     domisili: this.domisili
-    //   };
-    //   console.log(input);
+      // api
+      let input = {
+        name: this.name,
+        email: this.email, 
+        hp: this.hp,
+        domisili: this.domisili,
+        img : this.img,
+        password : this.password,
+        gender :this.gender
+      };
+      console.log(input);
       
 
-    //     this.http.post(this.data.BASE_URL+"/login_user.php",input).subscribe(data => {
-    //     let response = data.json();
-    //     console.log(response); 
-    //     if(response.status==200){    
-    //       this.data.logout();
+        this.http.post(this.data.BASE_URL+"/updateprofil",input).subscribe(data => {
+        let response = data.json();
+        console.log(response); 
+        if(response.status==true){    
+          //this.data.logout();
 
-    //       //tembak login si xsight buat dapetin token
-    //       // this.data.token(response.token);   
+          //tembak login si xsight buat dapetin token
+          // this.data.token(response.token);   
           
-          
-    //       this.data.login(response.data,"user");//ke lokal
-    //       loading.dismiss();
-    //     }
-    //     else {
-    //       loading.dismiss();
-    //        let alert = this.alertCtrl.create({
-    //           title: 'Gagal Masuk',
-    //           subTitle: response.message,      
-    //           buttons: ['OK']
-    //         });
-    //         alert.present();
-    //     }    
+          this.data.login(response.data,"user");//ke lokal
+          loading.dismiss();
 
-    // });
 
-      //apilogin    
+          this.nativePageTransitions.fade(null);
+          this.navCtrl.pop();
+
+        }
+        else {
+          loading.dismiss();
+           let alert = this.alertCtrl.create({
+              title: 'Gagal Masuk',
+              subTitle: response.message,      
+              buttons: ['OK']
+            });
+            alert.present();
+        }    
+
+    });
+
+      // apilogin    
     }
     else{
 
@@ -125,6 +135,73 @@ export class ProfileEditPage {
 
     }
 
+  }
+
+
+
+
+  updatePicture() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Pilihan',
+      buttons: [
+        {
+          text: 'Ambil Gambar Baru',
+          role: 'ambilGambar',
+          handler: () => {
+            this.takePicture();
+          }
+        },
+        {
+          text: 'Pilih Dari Galleri',
+          role: 'gallery',
+          handler: () => {
+            this.getPhotoFromGallery();
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  async takePicture(){
+    try {
+      const options : CameraOptions = {
+        quality: 50, //to reduce img size
+        targetHeight: 600,
+        targetWidth: 600,
+        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType:this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+
+      const result =  await this.camera.getPicture(options);
+
+      this.img = 'data:image/jpeg;base64,' + result;
+
+      this.validPhoto=true;
+
+    }
+    catch (e) {
+      console.error(e);
+      alert("error");
+    }
+
+  }
+
+  getPhotoFromGallery(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 600,
+        targetHeight: 600
+    }).then((imageData) => {
+      // this.base64Image = imageData;
+      // this.uploadFoto();
+      this.img = 'data:image/jpeg;base64,' + imageData;
+      this.validPhoto=true;
+      }, (err) => {
+    });
   }
 
 }

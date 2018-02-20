@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -25,6 +25,7 @@ export class EventsPage {
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
     public http: Http,
+    public loadCtrl: LoadingController,
     private nativePageTransitions: NativePageTransitions) {
 
       
@@ -34,7 +35,16 @@ export class EventsPage {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad EventsPage');
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.getEvents();
+
+    loading.dismiss();
   }
 
   getEvents() {

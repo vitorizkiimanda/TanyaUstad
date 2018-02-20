@@ -11,6 +11,14 @@
 
 
 <ion-content padding>
+
+  <div class="photoprofile" (click)="updatePicture()">
+      <ion-icon name="camera" class="editIcon"></ion-icon>
+      <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict"/>
+      <img [src]="img" *ngIf="img" class="Pict"/>
+  </div>
+  
+
   <form #editProfileForm="ngForm" novalidate>
     <ion-list >
       <!-- input nama -->

@@ -9,14 +9,14 @@
   
   <ion-row no-padding class="headerNSP">
     <ion-col col-3 no-padding text-center>
-      <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
+      <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{picture}}"/>
     </ion-col>
     <ion-col col-8 no-padding class="border">
       <div class="sender">
-        AA Gym - Allah Ada
+        {{user}} - {{name}}
       </div>
       <div class="content">
-        200 Views
+        {{status}} Views
       </div>
     </ion-col>
     <!-- <ion-col col-2 no-padding class="border2">
@@ -26,11 +26,11 @@
     </ion-col> -->
   </ion-row>
   
-  <div class="descVideo">
-    Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet Lorem ipsum dolor sir amet
+  <div class="descVideo borderCustom" [innerHTML]="description">
+    <!-- {{description}} -->
   </div>
 
-  <div class="descVideo">
+  <!-- <div class="descVideo">
     <br/>
     Ketik <b>ADDA</b> kirim SMS ke 1212
   </div>
@@ -38,53 +38,28 @@
   <div class="descVideo borderCustom">
     Tarif Rp 7530 / 7 hari
     
-  </div>
+  </div> -->
 
   <div class="headerTerkait">
     NSP TERKAIT
   </div>
 
-  <div class="card" (click)="gotoDetail(data)">
+  <div class="card" (click)="gotoDetail(data)" *ngFor="let data of terkait">
     <ion-row no-padding>
       <ion-col col-3 no-padding text-center>
-        <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
+        <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{data.picture}}"/>
       </ion-col>
       <ion-col col-8 no-padding class="border">
         <div class="sender">
-          AA Gym - Allah Ada
+          {{data.user}} - {{data.name}}
         </div>
         <div class="content">
-          200 Views
+          {{data.status}} Views
         </div>
       </ion-col>
-      <!-- <ion-col col-2 no-padding class="border2">
-        <div class="date">
-          Just now
-        </div>
-      </ion-col> -->
     </ion-row>
   </div>
 
-  <div class="card" (click)="gotoDetail(data)">
-    <ion-row no-padding>
-      <ion-col col-3 no-padding text-center>
-        <img alt="Gambar Rusak" class="pict" src="assets/pict/aa-gym.jpg"/>
-      </ion-col>
-      <ion-col col-8 no-padding class="border">
-        <div class="sender">
-          AA Gym - Allah Ada
-        </div>
-        <div class="content">
-          200 Views
-        </div>
-      </ion-col>
-      <!-- <ion-col col-2 no-padding class="border2">
-        <div class="date">
-          Just now
-        </div>
-      </ion-col> -->
-    </ion-row>
-  </div>
 
   
 </ion-content>

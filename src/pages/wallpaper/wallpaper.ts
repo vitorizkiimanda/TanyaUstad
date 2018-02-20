@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -27,6 +27,7 @@ export class WallpaperPage {
     public data: Data,
     private screenOrientation: ScreenOrientation,
     public authHttp: AuthHttp,
+    public loadCtrl: LoadingController,
     public http: Http) {
 
       
@@ -38,7 +39,16 @@ export class WallpaperPage {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad WallpaperPage');
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.getWallpaper();
+
+    loading.dismiss();
   }
 
   update(data) {

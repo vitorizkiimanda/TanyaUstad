@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,LoadingController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 import { AuthHttp } from 'angular2-jwt';
@@ -32,6 +32,7 @@ export class HomePage {
     public authHttp: AuthHttp,
     private nativePageTransitions: NativePageTransitions,
     private screenOrientation: ScreenOrientation,
+    public loadCtrl: LoadingController,
     public http: Http) {
       
       
@@ -44,7 +45,16 @@ export class HomePage {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad homePage');
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.updateToken();
+
+    loading.dismiss();
   }
 
   updateToken(){

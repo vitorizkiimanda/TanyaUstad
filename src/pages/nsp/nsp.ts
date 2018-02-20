@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -21,21 +21,30 @@ export class NspPage {
     public data: Data,
     public authHttp: AuthHttp,
     private nativePageTransitions: NativePageTransitions,
+    public loadCtrl: LoadingController,
     public http: Http) {
   }
 
   ionViewWillEnter() {
     console.log('ionViewDidLoad NspPage');
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.getNSP();
+
+    loading.dismiss();
   }
 
   getNSP() {
-    this.authHttp.get(this.data.BASE_URL+"/getinbox").subscribe(data => {
+    this.authHttp.get(this.data.BASE_URL+"/getnsp").subscribe(data => {
       let response = data.json();
-      console.log(response.inbox);
+      console.log(response);
       if(response.status==true){
 
-        // this.nsp=response.inbox;
+        this.nsp=response.nsp;
       }
       else{
         //alert gagal fetch data

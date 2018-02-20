@@ -12,8 +12,7 @@
     
       
 
-    <div class="photoprofile" (click)="updatePicture()">
-      <ion-icon name="camera" class="editIcon"></ion-icon>
+    <div class="photoprofile">
       <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict"/>
       <img [src]="img" *ngIf="img" class="Pict"/>
     </div>

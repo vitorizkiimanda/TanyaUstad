@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -24,6 +24,7 @@ export class ChatPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public data: Data,
+    public loadCtrl: LoadingController,
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
     private nativePageTransitions: NativePageTransitions,
@@ -65,7 +66,16 @@ export class ChatPage {
 
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad ChatPage');
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.getChats();
+
+    loading.dismiss();
   }
 
 

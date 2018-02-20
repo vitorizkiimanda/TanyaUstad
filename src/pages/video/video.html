@@ -8,11 +8,8 @@
 <ion-content>
     <div class="cardVideo">
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/> -->
-      <video width="100%" height="auto" controls>
-        <source [src]="url" type="video/mp4">
-        Video Error
-      </video>
-      <!-- <iframe
+
+      <iframe
           width="100%" 
           height="auto"
           frameborder="0"
@@ -20,7 +17,8 @@
           mozallowfullscreen
           allowfullscreen
           [src]="url">
-      </iframe> -->
+      </iframe>
+      
       <div class="nameVideo">
         {{name}}
       </div>
@@ -28,18 +26,18 @@
         {{user}} - {{status}} views
       </div>
     </div>
-    <div class="descVideo">
-      {{description}}
+    <div class="descVideo" [innerHTML]="description">
+      <!-- {{description}} -->
     </div>
 
-    <div class="prevButton">
+    <div class="prevButton" (click)="gotoPrev()">
       <button class="buttonSize" clear ion-button icon-left>
         <ion-icon  name="md-arrow-dropleft-circle"></ion-icon>
         <span class="buttonSize">PREV</span>
       </button>  
     </div>
     
-    <div class="nextButton">
+    <div class="nextButton" (click)="gotoNext()">
       <button class="buttonSize" clear ion-button icon-right>
         <span class="buttonSize">NEXT</span>
         <ion-icon name="md-arrow-dropright-circle"></ion-icon>
