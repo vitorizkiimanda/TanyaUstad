@@ -35,9 +35,17 @@ export class HomePage {
     public loadCtrl: LoadingController,
     public http: Http) {
       
-      
+      let loading = this.loadCtrl.create({
+        content: 'memuat..'
+      });
+
+
+      loading.present();
       
       this.getVideo();
+
+      
+      loading.dismiss();
   }
 
   ionViewWillEnter() {
@@ -104,11 +112,8 @@ export class HomePage {
   getVideo() {
 
     
-    let loading = this.loadCtrl.create({
-      content: 'memuat..'
-    });
+    
 
-    loading.present();
 
     this.authHttp.get(this.data.BASE_URL+"/getvloggers").subscribe(data => {
       let response = data.json();
@@ -118,12 +123,11 @@ export class HomePage {
         this.video=response.vloggers;
         
         
-        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
-        loading.dismiss();
+        // loading.dismiss();
       }
     });
   }
