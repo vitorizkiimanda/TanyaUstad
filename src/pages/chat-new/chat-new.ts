@@ -7,6 +7,7 @@ import { Http } from '@angular/http';
 import { Data } from '../../providers/data';
 import { ChatDetailPage } from '../chat-detail/chat-detail';
 import { ChatsNewDetailPage } from '../chats-new-detail/chats-new-detail';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class ChatNewPage {
     public data: Data,
     public authHttp: AuthHttp,
     private nativePageTransitions: NativePageTransitions,
+    public loadCtrl: LoadingController,
     public http: Http) {
 
       
@@ -34,16 +36,27 @@ export class ChatNewPage {
   }
 
   getAvailableChats() {
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.authHttp.get(this.data.BASE_URL+"/getusers").subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status==true){
 
         this.chats=response.users;
+
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+
+        loading.dismiss();
       }
     });
   }

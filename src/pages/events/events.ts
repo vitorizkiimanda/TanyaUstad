@@ -36,18 +36,21 @@ export class EventsPage {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad EventsPage');
 
+    
+
+    this.getEvents();
+
+    
+  }
+
+  getEvents() {
+
     let loading = this.loadCtrl.create({
       content: 'memuat..'
     });
 
     loading.present();
 
-    this.getEvents();
-
-    loading.dismiss();
-  }
-
-  getEvents() {
     this.authHttp.get(this.data.BASE_URL+"/getevents").subscribe(data => {
       let response = data.json();
       console.log(response.rundowns);
@@ -55,10 +58,15 @@ export class EventsPage {
 
         this.events=response.rundowns;
         console.log(this.events);
+
+        loading.dismiss();
+
       }
       else{
         //alert gagal fetch data
         console.log("error");
+
+        loading.dismiss();
       }
     });
   }

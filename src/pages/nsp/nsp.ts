@@ -27,28 +27,33 @@ export class NspPage {
 
   ionViewWillEnter() {
     console.log('ionViewDidLoad NspPage');
+    
+    this.getNSP();
+
+    
+  }
+
+  getNSP() {
+
     let loading = this.loadCtrl.create({
       content: 'memuat..'
     });
 
     loading.present();
 
-    this.getNSP();
-
-    loading.dismiss();
-  }
-
-  getNSP() {
     this.authHttp.get(this.data.BASE_URL+"/getnsp").subscribe(data => {
       let response = data.json();
       console.log(response);
       if(response.status==true){
 
         this.nsp=response.nsp;
+
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
   }

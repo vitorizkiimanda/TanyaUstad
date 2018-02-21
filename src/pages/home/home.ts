@@ -38,7 +38,6 @@ export class HomePage {
       
       
       this.getVideo();
-      this.getWallpaper();
   }
 
   ionViewWillEnter() {
@@ -46,15 +45,8 @@ export class HomePage {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad homePage');
 
-    let loading = this.loadCtrl.create({
-      content: 'memuat..'
-    });
-
-    loading.present();
-
     this.updateToken();
 
-    loading.dismiss();
   }
 
   updateToken(){
@@ -110,16 +102,28 @@ export class HomePage {
   
 
   getVideo() {
+
+    
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.authHttp.get(this.data.BASE_URL+"/getvloggers").subscribe(data => {
       let response = data.json();
       console.log(response.vloggers);
       if(response.status==true){
 
         this.video=response.vloggers;
+        
+        
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
   }

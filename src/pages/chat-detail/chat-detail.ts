@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content  } from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -11,6 +11,8 @@ import { Data } from '../../providers/data';
   templateUrl: 'chat-detail.html',
 })
 export class ChatDetailPage {
+
+  @ViewChild(Content) content:Content;
 
   message:string;
   sender_name:any;
@@ -35,8 +37,17 @@ export class ChatDetailPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad ChatDetailPage');
+
+    // this.scrollToBottom();
+
+  }
+
+  scrollToBottom() {
+    setTimeout(() => {
+        this.content.scrollToBottom(0);
+    });
   }
 
   sendChat(keyCode){
@@ -67,6 +78,8 @@ export class ChatDetailPage {
       if(response.status==true){
 
         this.chats=response.inbox;
+
+        this.scrollToBottom();
       }
       else{
         //alert gagal fetch data

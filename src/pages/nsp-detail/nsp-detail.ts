@@ -5,6 +5,7 @@ import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
 import { Data } from '../../providers/data';
 import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 @Component({
   selector: 'page-nsp-detail',
@@ -25,6 +26,7 @@ export class NspDetailPage {
     public navParams: NavParams,
     public data: Data,
     public authHttp: AuthHttp,
+    public loadCtrl: LoadingController,
     private nativePageTransitions: NativePageTransitions) {
 
       let temp = this.navParams.data;
@@ -50,16 +52,26 @@ export class NspDetailPage {
   }
 
   getNSPTerkait() {
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.authHttp.get(this.data.BASE_URL+"/getnsp").subscribe(data => {
       let response = data.json();
+      console.log("nsp terkaitttt");
       console.log(response);
       if(response.status==true){
 
         this.terkait=response.nsp;
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
   }

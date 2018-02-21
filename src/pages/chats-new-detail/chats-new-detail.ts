@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 import { AuthHttp } from 'angular2-jwt';
 import { Http } from '@angular/http';
@@ -11,6 +11,8 @@ import { Data } from '../../providers/data';
   templateUrl: 'chats-new-detail.html',
 })
 export class ChatsNewDetailPage {
+
+  @ViewChild(Content) content:Content;
 
   message:string;
   sender_name:any;
@@ -48,6 +50,12 @@ export class ChatsNewDetailPage {
     console.log('ionViewDidLoad ChatDetailPage');
   }
 
+  scrollToBottom() {
+    setTimeout(() => {
+        this.content.scrollToBottom(0);
+    });
+  }
+
   sendChat(keyCode){
 
     let regex = /^[\r\n/\s/g]*$/;
@@ -76,6 +84,8 @@ export class ChatsNewDetailPage {
       if(response.status==true){
 
         this.chats=response.inbox;
+
+        this.scrollToBottom();
       }
       else{
         //alert gagal fetch data

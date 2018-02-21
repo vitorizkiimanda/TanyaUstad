@@ -7,7 +7,7 @@
   </ion-header>
 
 
-<ion-content>
+<ion-content >
   <!-- <div text-wrap>
       <div *ngIf="data.id_user==user" class="talk-bubble-left tri-right btm-left">
         <div class="talktext">
@@ -24,11 +24,12 @@
   </div> -->
 
   <div id="chatMessages">
-    <div *ngFor="let data of chats" class="message">
+    <div *ngFor="let data of chats | reverse; let last = last" class="message">
       <div [class]="data.id_receiver==id_receiver ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
         <div class="messageContent">{{data.title}}</div>
         <div text-right class="messageTime">{{(data.send_at)?.substring(11,19)}}</div>
       </div>
+      <!-- {{last ? scrollToBottom() : ''}} -->
     </div>
   </div>
 

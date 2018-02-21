@@ -40,15 +40,11 @@ export class WallpaperPage {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad WallpaperPage');
 
-    let loading = this.loadCtrl.create({
-      content: 'memuat..'
-    });
-
-    loading.present();
+    
 
     this.getWallpaper();
 
-    loading.dismiss();
+    
   }
 
   update(data) {
@@ -60,6 +56,13 @@ export class WallpaperPage {
   }
 
   getWallpaper() {
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
     this.authHttp.get(this.data.BASE_URL+"/getreviews").subscribe(data => {
       let response = data.json();
       console.log(response);
@@ -71,10 +74,13 @@ export class WallpaperPage {
         // this.choosenSource3 = this.images[0].picture3;
         // this.choosenName = this.images[0].name;
         console.log(this.images);
+
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
   }

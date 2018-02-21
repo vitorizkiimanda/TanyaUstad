@@ -8,6 +8,7 @@ import { Data } from '../../providers/data';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { MyApp } from '../../app/app.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 @Component({
   selector: 'page-video',
@@ -29,6 +30,7 @@ export class VideoPage {
     public navCtrl: NavController, 
     private nativePageTransitions: NativePageTransitions,
     public navParams: NavParams,
+    public loadCtrl: LoadingController,
     public data: Data,
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
@@ -84,6 +86,13 @@ export class VideoPage {
 
   gotoPrev(){
 
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
+
+
     this.authHttp.get(this.data.BASE_URL+"/getvloggerspaginate/"+this.id).subscribe(data => {
       let response = data.json();
       console.log(response);
@@ -101,17 +110,25 @@ export class VideoPage {
       
               this.navCtrl.pop();
               this.navCtrl.push(VideoPage, response.vlogger);
+
+              loading.dismiss();
+
       
             }
             else{
               //alert gagal fetch data
               console.log("error");
+
+              loading.dismiss();
+
             }
           });
 
         }
         else{
           alert("Tidak ada video")
+
+          loading.dismiss();
         }
 
         
@@ -121,12 +138,20 @@ export class VideoPage {
       else{
         //alert gagal fetch data
         console.log("error");
+
+        loading.dismiss();
       }
     });
 
   }
 
   gotoNext(){
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+    loading.present();
 
     this.authHttp.get(this.data.BASE_URL+"/getvloggerspaginate/"+this.id).subscribe(data => {
       let response = data.json();
@@ -145,17 +170,19 @@ export class VideoPage {
       
               this.navCtrl.pop();
               this.navCtrl.push(VideoPage, response.vlogger);
-      
+              loading.dismiss();      
             }
             else{
               //alert gagal fetch data
               console.log("error");
+              loading.dismiss();
             }
           });
 
         }
         else{
           alert("Tidak ada video")
+          loading.dismiss();
         }
 
         
@@ -165,6 +192,7 @@ export class VideoPage {
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
 

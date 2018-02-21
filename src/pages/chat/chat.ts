@@ -67,29 +67,34 @@ export class ChatPage {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad ChatPage');
 
+    
+
+    this.getChats();
+
+    
+  }
+
+
+  getChats() {
+
     let loading = this.loadCtrl.create({
       content: 'memuat..'
     });
 
     loading.present();
 
-    this.getChats();
-
-    loading.dismiss();
-  }
-
-
-  getChats() {
     this.authHttp.get(this.data.BASE_URL+"/getinbox").subscribe(data => {
       let response = data.json();
       console.log(response.inbox);
       if(response.status==true){
 
         this.chats=response.inbox;
+        loading.dismiss();
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        loading.dismiss();
       }
     });
   }
