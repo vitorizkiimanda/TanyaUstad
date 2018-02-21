@@ -44,7 +44,6 @@ export class HomePage {
       
       this.getVideo();
 
-      
       loading.dismiss();
   }
 
@@ -127,7 +126,6 @@ export class HomePage {
       else{
         //alert gagal fetch data
         console.log("error");
-        // loading.dismiss();
       }
     });
   }
