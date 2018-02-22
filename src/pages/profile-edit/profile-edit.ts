@@ -7,6 +7,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 
 import { ActionSheetController } from 'ionic-angular/components/action-sheet/action-sheet-controller';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AuthHttp } from 'angular2-jwt';
 
 @Component({
   selector: 'page-profile-edit',
@@ -16,19 +17,25 @@ export class ProfileEditPage {
 
   
   submitted = false;
+  status:string;
+  lihat = true;
 
-  birthdate:string;
-  domisili:string;
-  email:string;
+  email: string;
+  password: string;
   gender:string;
+  domisili:string="indonesia";
   hp:string;
-  img:string;
-  name:string;
-  status_kawin:string;
-  password:string;
+  name:any;
+  status_kawin:any;
+  birthdate:any;
+  role:any="user";
+  img:any;
+
+  birthdate_status:any=false;
+  status_kawin_status:any=false;
+  gender_status:any=false;
 
   
-  validPhoto= false;
 
   constructor(
     public navCtrl: NavController, 
@@ -38,6 +45,7 @@ export class ProfileEditPage {
     public alertCtrl: AlertController,
     public loadCtrl: LoadingController,
     public http: Http,
+    public authHttp: AuthHttp,
     public actionSheetCtrl : ActionSheetController,
     private camera: Camera) {
 
@@ -49,17 +57,25 @@ export class ProfileEditPage {
       this.birthdate=data.birthdate;
       this.email=data.email;
       this.hp=data.hp;
-      this.domisili=data.domisili;
-      this.img=this.data.BASE_URL+data.img;
       this.gender=data.gender;
       this.status_kawin=data.status_kawin;
+
+      this.changeGender(this.gender);
+      this.changeStatusKawin(this.status_kawin);
+      this.changeBirthdate(this.birthdate);
       
+    })
+
+    this.data.getDataPhoto().then((data) => {
+      this.img=data;
     })
 
 
   }
 
   ionViewDidLoad() {
+    
+    this.status = "password";
     console.log('ionViewDidLoad ProfileEditPage');
   }
 
@@ -73,7 +89,7 @@ export class ProfileEditPage {
         content: 'memuat..'
     });
 
-    if(form.valid){
+    if(form.valid && this.gender_status && this.status_kawin_status && this.birthdate_status){
       
       loading.present();
 
@@ -81,29 +97,31 @@ export class ProfileEditPage {
 
       // api
       let input = {
-        name: this.name,
         email: this.email, 
-        hp: this.hp,
-        domisili: this.domisili,
-        img : this.img,
-        password : this.password,
-        gender :this.gender
+        password: this.password,
+        gender:this.gender,
+        domisili:this.domisili,
+        hp:this.hp,
+        name:this.name,
+        img:this.img,
+        status_kawin:this.status_kawin,
+        birthdate:this.birthdate,
+        role:this.role,
       };
       console.log(input);
       
 
-        this.http.post(this.data.BASE_URL+"/updateprofil",input).subscribe(data => {
+        this.authHttp.post(this.data.BASE_URL+"/updateprofil",input).subscribe(data => {
         let response = data.json();
         console.log(response); 
         if(response.status==true){    
-          //this.data.logout();
 
-          //tembak login si xsight buat dapetin token
-          // this.data.token(response.token);   
-          
-          this.data.login(response.data,"user");//ke lokal
+          this.data.eraseProfile();
+          this.data.login(response.model,"user");//ke lokal
+
+          this.data.session(input);
+
           loading.dismiss();
-
 
           this.nativePageTransitions.fade(null);
           this.navCtrl.pop();
@@ -137,71 +155,35 @@ export class ProfileEditPage {
 
   }
 
-
-
-
-  updatePicture() {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Pilihan',
-      buttons: [
-        {
-          text: 'Ambil Gambar Baru',
-          role: 'ambilGambar',
-          handler: () => {
-            this.takePicture();
-          }
-        },
-        {
-          text: 'Pilih Dari Galleri',
-          role: 'gallery',
-          handler: () => {
-            this.getPhotoFromGallery();
-          }
-        }
-      ]
-    });
-    actionSheet.present();
+  showPassword(){
+    this.status = "text";
+    this.lihat = false;
+    console.log(this.status);
   }
 
-  async takePicture(){
-    try {
-      const options : CameraOptions = {
-        quality: 50, //to reduce img size
-        targetHeight: 600,
-        targetWidth: 600,
-        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType:this.camera.MediaType.PICTURE,
-        correctOrientation: true
-      }
+  hidePassword(){
+    this.status = "password";
+    this.lihat = true;
+    console.log(this.status);
+  }
 
-      const result =  await this.camera.getPicture(options);
-
-      this.img = 'data:image/jpeg;base64,' + result;
-
-      this.validPhoto=true;
-
+  changeGender(data){
+    if(data){
+      this.gender_status=true;
     }
-    catch (e) {
-      console.error(e);
-      alert("error");
+  }
+  changeStatusKawin(data){
+    if(data){
+    this.status_kawin_status=true;
     }
-
+  }
+  changeBirthdate(data){
+    if(data){
+    this.birthdate_status=true;
+    }
   }
 
-  getPhotoFromGallery(){
-    this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
-        sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
-        targetWidth: 600,
-        targetHeight: 600
-    }).then((imageData) => {
-      // this.base64Image = imageData;
-      // this.uploadFoto();
-      this.img = 'data:image/jpeg;base64,' + imageData;
-      this.validPhoto=true;
-      }, (err) => {
-    });
-  }
+
+
 
 }

@@ -10,53 +10,105 @@
 <ion-content>
 
 
-<ion-content padding>
-
-  <div class="photoprofile" (click)="updatePicture()">
-      <ion-icon name="camera" class="editIcon"></ion-icon>
-      <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict"/>
-      <img [src]="img" *ngIf="img" class="Pict"/>
-  </div>
-  
+<ion-content padding class="background">
 
   <form #editProfileForm="ngForm" novalidate>
-    <ion-list >
-      <!-- input nama -->
-      <ion-item>
-        <ion-label floating>Nama</ion-label>
-        <ion-input class="Head2" [(ngModel)]="name" name="nama" type="string" #user="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-input>
-      </ion-item>
+		<ion-list >
 
-      <!-- email -->
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input class="Head2" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-input>
-      </ion-item>
-      
-      <!-- nomor telepon -->
-      <ion-item>
-        <ion-label floating>Nomor Telepon</ion-label>
-        <ion-input class="Head2" [(ngModel)]="hp" name="hp" type="number" #user="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-input>
-      </ion-item>
-      
-      <!-- alamat -->
-      <ion-item>
-        <ion-label floating>Alamat</ion-label>
-        <ion-textarea autosize class="Head2" [(ngModel)]="domisili" name="domisili" type="string" #user="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-textarea>
-      </ion-item>
-    </ion-list>
-    <ion-row>
+			<ion-item>
+				<ion-label floating><p class="Head">Nama</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="name" name="name" type="text" #nama="ngModel" 
+					required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="nama.valid || submitted == false" color="danger" padding-left class="Warning">
+			Nama harus diisi
+			</p>
+
+			<ion-item>
+				<ion-label floating><p class="Head">Email</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="email" pattern="[^@\]+@[^@\]+\.[^@\s]+" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+					required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="user.valid || submitted == false" color="danger" padding-left class="Warning">
+			Email harus valid
+			</p>
+
+			<ion-item>
+				<ion-label floating><p class="Head">Password</p></ion-label>
+				
+				
+				<ion-input class="Head2"  [(ngModel)]="password" name="pass" type="{{status}}" #pass="ngModel"  required>
+				</ion-input>
+				<button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
+				<button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='icon' color="primary2"> </ion-icon> </button>
+				
+
+			</ion-item>
+			
+			<p ion-text [hidden]="pass.valid || submitted == false" color="danger" padding-left class="Warning">
+				Password harus diisi
+			</p>
+
+			<ion-item>
+				<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
+				
+				
+				<ion-input class="Head2"  [(ngModel)]="hp" name="hp" type="number" #phone="ngModel"  required>
+				</ion-input>
+
+			</ion-item>
+			
+			<p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left class="Warning">
+				Nomor Telpon harus diisi
+			</p>
+
+			<!-- <ion-item no-lines class="Head">Domisili</ion-item>
+			<ion-item no-lines>
+				<ion-textarea class="Head2"  [(ngModel)]="domisili" name="domisili" placeholder="tuliskan domisili.." type="text" #alamat="ngModel" required autosize></ion-textarea>
+			</ion-item>
+			<p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
+				Nomor Telpon harus diisi
+			</p> -->
+
+			<ion-item>
+				<ion-label><span class="Head">Gender</span></ion-label>
+				<ion-select [(ngModel)]="gender" name="gender" class="Head2" (ionChange)="changeGender(gender)" interface="popover">
+				<ion-option value="male">Laki-laki</ion-option>
+				<ion-option value="female">Perempuan</ion-option>
+				</ion-select>
+			</ion-item>
+			<p ion-text [hidden]="gender_status || submitted == false" color="danger" padding-left class="Warning">
+				Gender harus dipilih
+			</p>
+
+			<ion-item>
+				<ion-label><span class="Head">Status Kawin</span></ion-label>
+				<ion-select [(ngModel)]="status_kawin" name="status_kawin" class="Head2" (ionChange)="changeStatusKawin(status_kawin)" interface="popover">
+				<ion-option value="kawin">Kawin</ion-option>
+				<ion-option value="single">Belum Kawin</ion-option>
+				</ion-select>
+			</ion-item>
+			<p ion-text [hidden]="status_kawin_status || submitted == false" color="danger" padding-left class="Warning">
+				Status Kawin harus dipilih
+			</p>
+
+			<ion-item no-lines class="Head">Tanggal Lahir</ion-item>
+			<ion-item>
+				<ion-datetime class="Head" displayFormat="DD/MM/YYYY" [(ngModel)]="birthdate" name="birthdate" (ionChange)="changeBirthdate(birthdate)"></ion-datetime>
+			</ion-item>
+			<p ion-text [hidden]="birthdate_status || submitted == false" color="danger" padding-left class="Warning">
+				Tanggal lahir harus diisi
+			</p>
+		</ion-list>
+
+		<ion-row>
       <ion-col>
         <button class="ButtonMasuk" color="ustadGreen" ion-button (click)="saveProfil(editProfileForm)" block><p class="ButtonWord">Simpan</p></button>
       </ion-col>
     </ion-row>
-  </form>
+
+	</form>
+
 </ion-content>

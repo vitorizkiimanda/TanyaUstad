@@ -10,11 +10,10 @@
   
   <ion-content class="background" *ngIf="role=='user'">
     
-      
-
-    <div class="photoprofile">
+    <div class="photoprofile" (click)="updatePicture()">
+      <ion-icon name="camera" class="editIcon"></ion-icon>
       <img src="assets/pict/Profil.png" *ngIf="!img" class="Pict"/>
-      <img [src]="img" *ngIf="img" class="Pict"/>
+      <img src="http://156.67.218.250:81{{img}}" *ngIf="img" class="Pict"/>
     </div>
   
   
@@ -34,18 +33,19 @@
       <p *ngIf="!hp" class="Konten">-</p>
       
     </ion-item>
-    <!-- <ion-item padding-right text-wrap>
+    <ion-item padding-right text-wrap>
       <ion-icon name="md-calendar" item-left class="Icon"></ion-icon>
       <p class="Head">Tanggal Ulang Tahun</p>
       <p *ngIf="birthdate" class="Konten">{{birthdate}}</p>
       <p *ngIf="!birthdate" class="Konten">-</p>
 
-    </ion-item> -->
+    </ion-item>
     <ion-item padding-right text-wrap>
       <!-- <ion-icon name="md-female" *ngIf='gender=="male"' item-left class="Icon"></ion-icon> -->
       <ion-icon name="md-transgender" item-left class="Icon"></ion-icon>
       <p class="Head">Gender</p>
-      <p *ngIf="gender" class="Konten">{{gender}}</p>
+      <p *ngIf="gender=='male'" class="Konten">Laki-laki</p>
+      <p *ngIf="gender=='female'" class="Konten">Perempuan</p>
       <p *ngIf="!gender" class="Konten">-</p>
 
     </ion-item>
@@ -56,13 +56,13 @@
       <p *ngIf="status_kawin=='2'" class="Konten">Kawin</p>
       <p *ngIf="!status_kawin" class="Konten">-</p>
     </ion-item>
-    <ion-item padding-right text-wrap>
+    <!-- <ion-item padding-right text-wrap>
       <ion-icon name="md-map" item-left class="Icon"></ion-icon>
       <p class="Head">Domisili</p>
       <p *ngIf="domisili" class="Konten">{{domisili}}</p>
       <p *ngIf="!domisili" class="Konten">-</p>
       
-    </ion-item>
+    </ion-item> -->
   
     <ion-item padding-left-right>
       <button class='Button' color="light" ion-button block (click)='editProfil()'><p class="ButtonWordGreen">Sunting Profil</p></button>

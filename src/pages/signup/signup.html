@@ -7,6 +7,17 @@
   
   <form #loginForm="ngForm" novalidate>
 		<ion-list >
+
+			<ion-item>
+				<ion-label floating><p class="Head">Nama</p></ion-label>
+				<ion-input class="Head2" [(ngModel)]="name" name="name" type="text" #nama="ngModel" 
+					required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="nama.valid || submitted == false" color="danger" padding-left class="Warning">
+			Nama harus diisi
+			</p>
+
 			<ion-item>
 				<ion-label floating><p class="Head">Email</p></ion-label>
 				<ion-input class="Head2" [(ngModel)]="email" pattern="[^@\]+@[^@\]+\.[^@\s]+" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
@@ -31,6 +42,58 @@
 			
 			<p ion-text [hidden]="pass.valid || submitted == false" color="danger" padding-left class="Warning">
 				Password harus diisi
+			</p>
+
+			<ion-item>
+				<ion-label floating><p class="Head">Nomor Telepon</p></ion-label>
+				
+				
+				<ion-input class="Head2"  [(ngModel)]="hp" name="hp" type="number" #phone="ngModel"  required>
+				</ion-input>
+
+			</ion-item>
+			
+			<p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left class="Warning">
+				Nomor Telpon harus diisi
+			</p>
+
+			<!-- <ion-item no-lines class="Head">Domisili</ion-item>
+			<ion-item no-lines>
+				<ion-textarea class="Head2"  [(ngModel)]="domisili" name="domisili" placeholder="tuliskan domisili.." type="text" #alamat="ngModel" required autosize></ion-textarea>
+			</ion-item>
+			<p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
+				Alamat harus diisi
+			</p> -->
+
+			<ion-item>
+				<ion-label><span class="Head">Gender</span></ion-label>
+				<ion-select [(ngModel)]="gender" name="gender" class="Head2" (ionChange)="changeGender()" interface="popover">
+				<ion-option value="male">Laki-laki</ion-option>
+				<ion-option value="female">Perempuan</ion-option>
+				</ion-select>
+			</ion-item>
+			<p ion-text [hidden]="gender_status || submitted == false" color="danger" padding-left class="Warning">
+				Gender harus dipilih
+			</p>
+
+			<ion-item>
+				<ion-label><span class="Head">Status Kawin</span></ion-label>
+				<ion-select [(ngModel)]="status_kawin" name="status_kawin" class="Head2" (ionChange)="changeStatusKawin()" interface="popover">
+				<ion-option value="2">Kawin</ion-option>
+				<ion-option value="1">Belum Kawin</ion-option>
+				<!-- <ion-option value="cerai">Cerai</ion-option> -->
+				</ion-select>
+			</ion-item>
+			<p ion-text [hidden]="status_kawin_status || submitted == false" color="danger" padding-left class="Warning">
+				Status Kawin harus dipilih
+			</p>
+
+			<ion-item no-lines class="Head">Tanggal Lahir</ion-item>
+			<ion-item>
+				<ion-datetime class="Head" displayFormat="DD/MM/YYYY" [(ngModel)]="birthdate" name="birthdate" (ionChange)="changeBirthdate()"></ion-datetime>
+			</ion-item>
+			<p ion-text [hidden]="birthdate_status || submitted == false" color="danger" padding-left class="Warning">
+				Tanggal lahir harus diisi
 			</p>
 		</ion-list>
 

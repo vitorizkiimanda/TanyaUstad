@@ -77,8 +77,9 @@ export class OnboardingPage {
 
     let input = {
       email: 'drikdoank@gmail.com', 
-      password: '123456'
+      password: '12345678'
     };
+    console.log(input);
       this.http.post(this.data.BASE_URL+"/signin",input).subscribe(data => {
       let response = data.json();
       if(response.status==true){

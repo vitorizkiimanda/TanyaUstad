@@ -32,14 +32,27 @@ export class Data {
     this.storage.set('user_data', data);
     this.storage.set('role', role);
   };
+
+  photo(data : any) {
+    this.storage.set('user_data_photo', data);
+  };
   
+  eraseProfile() {
+    this.storage.remove(this.HAS_LOGGED_IN);
+    this.storage.remove('user_data');
+    this.storage.remove('role');
+    this.storage.remove('user_data_photo');
+  };
 
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_data');
     this.storage.remove('role');
+    this.storage.remove('user_data_photo');
     this.storage.remove('token');
+    this.storage.remove('data_session');
   };
+
 
   isLogin(){
     return this.storage.get(this.HAS_LOGGED_IN).then((value)=>{
@@ -53,6 +66,12 @@ export class Data {
   }
   getData() {
     return this.storage.get('user_data').then((value) => {
+      return value;
+    });
+  }
+
+  getDataPhoto() {
+    return this.storage.get('user_data_photo').then((value) => {
       return value;
     });
   }
