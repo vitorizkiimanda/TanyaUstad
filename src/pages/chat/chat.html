@@ -18,7 +18,8 @@
   <div class="card" (click)="gotoDetail(data)" *ngFor="let data of chats">
     <ion-row no-padding>
       <ion-col col-3 no-padding text-center>
-        <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{data.sender_pict}}"/>
+          <img *ngIf="data.img" class="pict" src="http://156.67.218.250:81{{data.img}}"/>
+          <img src="assets/pict/Profil.png" *ngIf="!data.img" class="pict"/>
       </ion-col>
       <ion-col col-8 no-padding class="border">
         <div class="sender">

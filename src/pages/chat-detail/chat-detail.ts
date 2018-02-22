@@ -72,7 +72,7 @@ export class ChatDetailPage {
 
     console.log("id sender:" + this.id_sender);
 
-    this.authHttp.get(this.data.BASE_URL+"/getinboxbyidsender"+"/"+this.id_sender).subscribe(data => {
+    this.authHttp.get(this.data.BASE_URL+"/getinboxbyidsender"+"/"+this.id_receiver).subscribe(data => {
       let response = data.json();
       console.log(response.inbox);
       if(response.status==true){
