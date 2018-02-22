@@ -36,9 +36,12 @@ export class Data {
   photo(data : any) {
     this.storage.set('user_data_photo', data);
   };
+
+  erasePhoto() {
+    this.storage.remove('user_data_photo');
+  };
   
   eraseProfile() {
-    this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('user_data');
     this.storage.remove('role');
     this.storage.remove('user_data_photo');

@@ -202,7 +202,7 @@ export class ProfilPage {
       let response = data.json();
       console.log(response); 
       if(response.status==true){    
-        //this.data.logout();
+        this.data.erasePhoto();
 
         //tembak login si xsight buat dapetin token
         // this.data.token(response.token);   
@@ -210,10 +210,6 @@ export class ProfilPage {
         this.data.photo(response.data.img);//ke lokal khusus foto
         this.img = response.data.img; //biar foto langsung update
         loading.dismiss();
-
-
-        this.nativePageTransitions.fade(null);
-        this.navCtrl.pop();
 
       }
       else {

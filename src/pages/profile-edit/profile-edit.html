@@ -27,7 +27,7 @@
 
 			<ion-item>
 				<ion-label floating><p class="Head">Email</p></ion-label>
-				<ion-input class="Head2" [(ngModel)]="email" pattern="[^@\]+@[^@\]+\.[^@\s]+" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
+				<ion-input class="Head2" [(ngModel)]="email" pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
 					required>
 				</ion-input>
 			</ion-item>
