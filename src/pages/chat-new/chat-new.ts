@@ -43,6 +43,10 @@ export class ChatNewPage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     this.authHttp.get(this.data.BASE_URL+"/getusers").subscribe(data => {
       let response = data.json();
       console.log(response);

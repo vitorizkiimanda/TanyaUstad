@@ -35,16 +35,10 @@ export class HomePage {
     public loadCtrl: LoadingController,
     public http: Http) {
       
-      let loading = this.loadCtrl.create({
-        content: 'memuat..'
-      });
-
-
-      loading.present();
+      
       
       this.getVideo();
 
-      loading.dismiss();
   }
 
   ionViewWillEnter() {
@@ -110,6 +104,16 @@ export class HomePage {
 
   getVideo() {
 
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+
+
+    loading.present();
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
     
     
 
@@ -121,11 +125,15 @@ export class HomePage {
 
         this.video=response.vloggers;
         
+        loading.dismiss();
+        
         
       }
       else{
         //alert gagal fetch data
         console.log("error");
+        
+        loading.dismiss();
       }
     });
   }

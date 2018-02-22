@@ -83,6 +83,10 @@ export class ChatPage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     this.authHttp.get(this.data.BASE_URL+"/getinbox").subscribe(data => {
       let response = data.json();
       console.log(response.inbox);

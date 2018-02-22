@@ -51,6 +51,10 @@ export class EventsPage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     this.authHttp.get(this.data.BASE_URL+"/getevents").subscribe(data => {
       let response = data.json();
       console.log(response.rundowns);

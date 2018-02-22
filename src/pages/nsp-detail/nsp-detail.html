@@ -47,11 +47,7 @@
     NSP TERKAIT
   </div>
 
-  
-
-  <ion-toolbar>
-  <!-- <ion-scroll class="terkaitGrup" scrollY="true" direction="y"> -->
-    <div class="card" (click)="gotoDetail(data)" *ngFor="let data of terkait">
+  <div class="card" (click)="gotoDetail(data)" *ngFor="let data of terkait">
       <ion-row no-padding>
         <ion-col col-3 no-padding text-center>
           <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{data.picture}}"/>
@@ -65,9 +61,7 @@
           </div>
         </ion-col>
       </ion-row>
-    </div>
-  <!-- </ion-scroll> -->
-  </ion-toolbar>    
+  </div>
 
 
 

@@ -59,20 +59,19 @@ export class NspDetailPage {
 
     loading.present();
 
-    this.authHttp.get(this.data.BASE_URL+"/getnsp").subscribe(data => {
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
+    this.authHttp.get(this.data.BASE_URL+"/getnspterkait/"+this.user).subscribe(data => {
+      
       let response = data.json();
       console.log("nsp terkaitttt");
-      console.log(response);
-      if(response.status==true){
-
-        this.terkait=response.nsp;
-        loading.dismiss();
-      }
-      else{
-        //alert gagal fetch data
-        console.log("error");
-        loading.dismiss();
-      }
+      console.log(response.nsp);
+      
+      this.terkait=response.nsp;
+      console.log(this.terkait);
+      loading.dismiss();
     });
   }
 

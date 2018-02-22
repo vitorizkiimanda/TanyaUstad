@@ -63,6 +63,10 @@ export class WallpaperPage {
 
     loading.present();
 
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+
     this.authHttp.get(this.data.BASE_URL+"/getreviews").subscribe(data => {
       let response = data.json();
       console.log(response);
