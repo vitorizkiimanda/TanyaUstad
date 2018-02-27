@@ -2,6 +2,16 @@
     <ion-navbar color="muserYellow">
       <ion-title text-right><span class="wordNavbar">Video</span></ion-title>
     </ion-navbar>
+    
+    <iframe
+        width="100%" 
+        height="auto"
+        frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+        [src]="url">
+    </iframe>
 </ion-header>
 
 
@@ -9,15 +19,6 @@
     <div class="cardVideo">
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/> -->
 
-      <iframe
-          width="100%" 
-          height="auto"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-          [src]="url">
-      </iframe>
       
       <div class="nameVideo">
         {{name}}
@@ -26,7 +27,7 @@
         {{user}} - {{status}} views
       </div>
     </div>
-    <div class="descVideo" [innerHTML]="description">
+    <div class="descVideo" style="text-align: justify" [innerHTML]="description">
       <!-- {{description}} -->
     </div>
 

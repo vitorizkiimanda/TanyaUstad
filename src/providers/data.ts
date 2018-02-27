@@ -33,10 +33,6 @@ export class Data {
     this.storage.set('role', role);
   };
 
-  photo(data : any) {
-    this.storage.set('user_data_photo', data);
-  };
-
   erasePhoto() {
     this.storage.remove('user_data_photo');
   };
@@ -73,11 +69,6 @@ export class Data {
     });
   }
 
-  getDataPhoto() {
-    return this.storage.get('user_data_photo').then((value) => {
-      return value;
-    });
-  }
 
   getToken() {
     return this.storage.get('token').then((value) => {

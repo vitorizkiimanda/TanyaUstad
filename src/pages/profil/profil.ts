@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { OnboardingPage } from '../Onboarding/Onboarding';
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 import { Data } from '../../providers/data';
 import { MyApp } from '../../app/app.component';
@@ -48,7 +49,8 @@ export class ProfilPage {
     public authHttp: AuthHttp,
     public data: Data,
     public loadCtrl: LoadingController,
-    private camera: Camera) {
+    private camera: Camera,
+    private transfer: FileTransfer,) {
 
       
 
@@ -61,6 +63,7 @@ export class ProfilPage {
     console.log('ionViewDidLoad ProfilPage');
 
     this.data.getData().then((data) => {
+      console.log(data);
 
       this.name=data.name;
       this.birthdate=data.birthdate;
@@ -68,15 +71,11 @@ export class ProfilPage {
       this.hp=data.hp;
       this.gender=data.gender;
       this.status_kawin=data.status;
+      this.img=data.img;
     })
 
     this.data.getRole().then((data) => {
       this.role=data;
-      console.log(this.role);
-    })
-
-    this.data.getDataPhoto().then((data) => {
-      this.img=data;
     })
 
   }
@@ -186,6 +185,7 @@ export class ProfilPage {
 
 
   postPhoto(data){
+    alert(data);
 
     let loading = this.loadCtrl.create({
       content: 'memuat..'
@@ -197,32 +197,54 @@ export class ProfilPage {
       loading.dismiss();
     }, 5000);
     // api
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
     
-      this.authHttp.post(this.data.BASE_URL+"/updatefotoprofil",data).subscribe(data => {
-      let response = data.json();
-      console.log(response); 
-      if(response.status==true){    
-        this.data.erasePhoto();
+    let options: FileUploadOptions = {
+      fileKey: 'ionicfile',
+      fileName: this.email,
+      chunkedMode: false,
+      mimeType: "image/jpeg",
+      headers: {}
+    }
 
-        //tembak login si xsight buat dapetin token
-        // this.data.token(response.token);   
+    fileTransfer.upload(data, this.data.BASE_URL+"/updatefotoprofil", options)
+      .then((data) => {
+      alert(data+" Uploaded Successfully");
+
+      
+      // this.data.login(data.model,"user");//ke lokal
+      
+      loading.dismiss();
+      this.ionViewWillEnter();
+    }, (err) => {
+      console.log(err);
+      loading.dismiss();
+      alert("gagal mengunggah gambar");
+    });
+    
+  //     this.authHttp.post(this.data.BASE_URL+"/updatefotoprofil",data).subscribe(data => {
+  //     let response = data.json();
+  //     console.log(response); 
+  //     if(response.status==true){    
+  //       // this.data.erasePhoto();
         
-        this.data.photo(response.data.img);//ke lokal khusus foto
-        this.img = response.data.img; //biar foto langsung update
-        loading.dismiss();
+  //       this.data.login(response.model,"user");//ke lokal
+  //       this.img = response.model.img; //biar foto langsung update
+  //       loading.dismiss();
 
-      }
-      else {
-        loading.dismiss();
-         let alert = this.alertCtrl.create({
-            title: 'Gagal Masuk',
-            subTitle: response.message,      
-            buttons: ['OK']
-          });
-          alert.present();
-      }    
+  //     }
+  //     else {
+  //       loading.dismiss();
+  //        let alert = this.alertCtrl.create({
+  //           title: 'Gagal Masuk',
+  //           subTitle: response.message,      
+  //           buttons: ['OK']
+  //         });
+  //         alert.present();
+  //     }    
 
-  });
+  // });
 
     // apilogin    
   }

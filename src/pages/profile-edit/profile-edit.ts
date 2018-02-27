@@ -66,9 +66,6 @@ export class ProfileEditPage {
       
     })
 
-    this.data.getDataPhoto().then((data) => {
-      this.img=data;
-    })
 
 
   }

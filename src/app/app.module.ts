@@ -35,6 +35,8 @@ import { ChatsNewDetailPage } from '../pages/chats-new-detail/chats-new-detail';
 import { NspPage } from '../pages/nsp/nsp';
 import { NspDetailPage } from '../pages/nsp-detail/nsp-detail';
 import {NgPipesModule} from 'ngx-pipes';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 let storage = new Storage({});
 
@@ -118,6 +120,10 @@ console.log(storage.get('token'));
     Data,
     NativePageTransitions,
     ScreenOrientation,
+    FileTransfer,
+    FileTransferObject,
+    File,
+    
 
     SplashScreen,
     Camera,
