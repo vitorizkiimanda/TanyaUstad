@@ -32,6 +32,8 @@ export class ProfilPage {
   status_kawin:string;
   password: string;
 
+  token:any;
+
 
   role:string;
 
@@ -77,6 +79,12 @@ export class ProfilPage {
     this.data.getRole().then((data) => {
       this.role=data;
     })
+
+    
+    this.data.getToken().then((data) => {
+      this.token=data;
+   })
+    console.log('token'+this.token);
 
   }
 
@@ -143,7 +151,7 @@ export class ProfilPage {
         quality: 50, //to reduce img size
         targetHeight: 600,
         targetWidth: 600,
-        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        destinationType: this.camera.DestinationType.FILE_URI, //FILE URI itu buat image aseli
         encodingType: this.camera.EncodingType.JPEG,
         mediaType:this.camera.MediaType.PICTURE,
         correctOrientation: true
@@ -167,7 +175,7 @@ export class ProfilPage {
 
   getPhotoFromGallery(){
     this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
+        destinationType: this.camera.DestinationType.FILE_URI,
         sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
         targetWidth: 600,
         targetHeight: 600
@@ -186,6 +194,7 @@ export class ProfilPage {
 
   postPhoto(data){
     alert(data);
+    alert("token" + this.token);
 
     let loading = this.loadCtrl.create({
       content: 'memuat..'
@@ -199,18 +208,19 @@ export class ProfilPage {
     // api
 
     const fileTransfer: FileTransferObject = this.transfer.create();
+
     
     let options: FileUploadOptions = {
-      fileKey: 'ionicfile',
+      fileKey: 'img',
       fileName: this.email,
       chunkedMode: false,
       mimeType: "image/jpeg",
-      headers: {}
+      headers: {'Authorization': 'Bearer ' + this.token}
     }
 
     fileTransfer.upload(data, this.data.BASE_URL+"/updatefotoprofil", options)
       .then((data) => {
-      alert(data+" Uploaded Successfully");
+      alert(JSON.stringify(data)+" Uploaded Successfully");
 
       
       // this.data.login(data.model,"user");//ke lokal
@@ -220,33 +230,9 @@ export class ProfilPage {
     }, (err) => {
       console.log(err);
       loading.dismiss();
-      alert("gagal mengunggah gambar");
+      alert( JSON.stringify(err));
     });
-    
-  //     this.authHttp.post(this.data.BASE_URL+"/updatefotoprofil",data).subscribe(data => {
-  //     let response = data.json();
-  //     console.log(response); 
-  //     if(response.status==true){    
-  //       // this.data.erasePhoto();
-        
-  //       this.data.login(response.model,"user");//ke lokal
-  //       this.img = response.model.img; //biar foto langsung update
-  //       loading.dismiss();
-
-  //     }
-  //     else {
-  //       loading.dismiss();
-  //        let alert = this.alertCtrl.create({
-  //           title: 'Gagal Masuk',
-  //           subTitle: response.message,      
-  //           buttons: ['OK']
-  //         });
-  //         alert.present();
-  //     }    
-
-  // });
-
-    // apilogin    
+     
   }
 
 
