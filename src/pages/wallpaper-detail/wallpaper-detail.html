@@ -10,15 +10,15 @@
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="assets/pict/aa-gym.jpg"/> -->
       <ion-slides pager>
 
-        <ion-slide>
-          <img class="slide-image" src="http://156.67.218.250:81{{picture}}"/>
-        </ion-slide>
-    
-        <ion-slide>
+        <ion-slide (click)="downloadImage(picture2)">
           <img class="slide-image" src="http://156.67.218.250:81{{picture2}}"/>
         </ion-slide>
     
-        <ion-slide>
+        <ion-slide (click)="downloadImage(picture2)">
+          <img class="slide-image" src="http://156.67.218.250:81{{picture2}}"/>
+        </ion-slide>
+    
+        <ion-slide (click)="downloadImage(picture3)">
           <img class="slide-image" src="http://156.67.218.250:81{{picture3}}"/>
         </ion-slide>
     
