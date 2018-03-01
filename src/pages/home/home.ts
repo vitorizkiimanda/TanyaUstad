@@ -24,6 +24,9 @@ export class HomePage {
   slide2:any;
   slide3:any;
 
+  email:any;
+  password:any;
+
   categoryChoosen:string='action';
 
   constructor(
@@ -37,6 +40,10 @@ export class HomePage {
       
       
       
+      
+      // this.updateToken();
+
+
       this.getVideo();
 
   }
@@ -46,16 +53,27 @@ export class HomePage {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     console.log('ionViewDidLoad homePage');
 
-    this.updateToken();
+    
 
   }
 
   updateToken(){
+    
     this.data.getSession().then((data) => {
 
-      if(data){
+      this.email = data.email;
+      this.password = data.password;
 
-        this.http.post(this.data.BASE_URL+"/signin",data).subscribe(data => {
+      console.log(this.email);
+      console.log(this.password);
+
+      if(this.email && this.password){
+        let input = {
+          email: this.email, 
+          password: this.password
+        };
+
+        this.http.post(this.data.BASE_URL+"/signin",input).subscribe(data => {
           let response = data.json();
           if(response.status==true){
 

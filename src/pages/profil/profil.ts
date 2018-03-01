@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, DateTime } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { OnboardingPage } from '../Onboarding/Onboarding';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -15,6 +15,7 @@ import { ActionSheetController } from 'ionic-angular/components/action-sheet/act
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ProfileEditPage } from '../profile-edit/profile-edit';
 import { AuthHttp } from 'angular2-jwt';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-profil',
@@ -193,8 +194,8 @@ export class ProfilPage {
 
 
   postPhoto(data){
-    alert(data);
-    alert("token" + this.token);
+    // alert(data);
+    // alert("token" + this.token);
 
     let loading = this.loadCtrl.create({
       content: 'memuat..'
@@ -212,7 +213,7 @@ export class ProfilPage {
     
     let options: FileUploadOptions = {
       fileKey: 'img',
-      fileName: this.email,
+      fileName: this.email + Date.now(),
       chunkedMode: false,
       mimeType: "image/jpeg",
       headers: {'Authorization': 'Bearer ' + this.token}
@@ -220,13 +221,31 @@ export class ProfilPage {
 
     fileTransfer.upload(data, this.data.BASE_URL+"/updatefotoprofil", options)
       .then((data) => {
-      alert(JSON.stringify(data)+" Uploaded Successfully");
 
+
+
+      // this.saveToStorage(data.response);
       
-      // this.data.login(data.model,"user");//ke lokal
+      this.nativePageTransitions.fade(null);
+      this.navCtrl.setRoot(LoginPage);
       
       loading.dismiss();
-      this.ionViewWillEnter();
+
+      let alert = this.alertCtrl.create({
+        title: 'Update Foto Berhasil',
+        message: 'Harap login kembali.',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              console.log('Agree clicked');
+            }
+          }
+        ]
+      });
+        alert.present();    
+      
+      // this.ionViewWillEnter();
     }, (err) => {
       console.log(err);
       loading.dismiss();
@@ -236,6 +255,16 @@ export class ProfilPage {
   }
 
 
-  
+  saveToStorage(data: any){
+    
+    
+    let response = data.json();
+    alert(response.model);
 
+    this.data.login(response.model,"user");//ke lokal
+    
+  }
+
+
+  
 }
