@@ -58,6 +58,11 @@ export class LoginPage {
       if(form.valid){
         
         loading.present();
+
+        setTimeout(() => {
+          loading.dismiss();
+        }, 10000);
+        
   
         //apiLogin
         let input = {

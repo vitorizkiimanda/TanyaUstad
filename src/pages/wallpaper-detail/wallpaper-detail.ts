@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, LoadingController, Platform } from 'ionic-angular';
 import { AuthHttp } from 'angular2-jwt';
 import { Data } from '../../providers/data';
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
+declare var cordova: any;
 
 @Component({
   selector: 'page-wallpaper-detail',
@@ -18,6 +20,7 @@ export class WallpaperDetailPage {
   picture2:any;
   picture3:any;
 
+  storageDirectory: string = '';
 
   constructor(
     public navCtrl: NavController, 
@@ -27,7 +30,28 @@ export class WallpaperDetailPage {
     public authHttp: AuthHttp,
     public data: Data,
     public loadCtrl: LoadingController,
-    private transfer: FileTransfer) {
+    private transfer: FileTransfer,
+    public platform: Platform) {
+
+
+      this.platform.ready().then(() => {
+        // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
+        if(!this.platform.is('cordova')) {
+          return false;
+        }
+  
+        if (this.platform.is('ios')) {
+          this.storageDirectory = cordova.file.documentsDirectory;
+        }
+        else if(this.platform.is('android')) {
+          this.storageDirectory = cordova.file.dataDirectory;
+        }
+        else {
+          // exit otherwise, but you could add further types here e.g. Windows
+          return false;
+        }
+      });
+
 
     let temp = this.navParams.data;
     this.name = temp.name;
@@ -82,11 +106,14 @@ export class WallpaperDetailPage {
               const fileTransfer: FileTransferObject = this.transfer.create();
           
               
-              fileTransfer.download(data, temp).then((entry) => {
+              fileTransfer.download(data, this.storageDirectory + temp).then((entry) => {
                 console.log('download complete: ' + entry.toURL());
+
+                loading.dismiss();
 
                 let alert = this.alertCtrl.create({
                   title: 'Download Foto Berhasil',
+                  message: 'Lokasi Penyimpanan : '+this.storageDirectory+temp,
                   buttons: [
                     {
                       text: 'OK',
@@ -99,8 +126,11 @@ export class WallpaperDetailPage {
                   alert.present();   
 
               }, (error) => {
+                alert(error);
                 // handle error
-                let alert = this.alertCtrl.create({
+
+                loading.dismiss();
+                let alertError = this.alertCtrl.create({
                   title: 'Download Foto Gagal',
                   message: 'silahkan coba kembali',
                   buttons: [
@@ -112,7 +142,7 @@ export class WallpaperDetailPage {
                     }
                   ]
                 });
-                  alert.present();   
+                alertError.present();   
               });
           
              

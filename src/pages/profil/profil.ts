@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, DateTime } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, DateTime, Platform } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { OnboardingPage } from '../Onboarding/Onboarding';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -16,6 +16,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ProfileEditPage } from '../profile-edit/profile-edit';
 import { AuthHttp } from 'angular2-jwt';
 import { LoginPage } from '../login/login';
+
+
 
 @Component({
   selector: 'page-profil',
@@ -53,7 +55,10 @@ export class ProfilPage {
     public data: Data,
     public loadCtrl: LoadingController,
     private camera: Camera,
-    private transfer: FileTransfer,) {
+    private transfer: FileTransfer) {
+
+
+      
 
       
 

@@ -60,6 +60,10 @@ export class SignupPage {
       
       loading.present();
 
+      setTimeout(() => {
+        loading.dismiss();
+      }, 10000);
+
       //apiLogin
       let input = {
         email: this.email, 
