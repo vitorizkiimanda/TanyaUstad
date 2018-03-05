@@ -163,6 +163,10 @@ export class WallpaperDetailPage {
 
   }
 
+  share(data){
+    alert("share");
+  }
+
 
 
 }

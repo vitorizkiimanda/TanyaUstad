@@ -198,8 +198,8 @@ export class VideoPage {
 
   }
 
-
-
-  
+  share(data){
+    alert("share");
+  }
 
 }

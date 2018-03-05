@@ -63,4 +63,8 @@ export class NspPage {
     this.navCtrl.push(NspDetailPage, data);
   }
 
+  share(data){
+    alert("share");
+  }
+
 }

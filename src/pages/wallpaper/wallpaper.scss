@@ -81,7 +81,7 @@ page-wallpaper {
 
     .pictVideo{
         width: 100vw;
-        // height: 50vw;
+        height: auto;
     }
 
     .nameVideo{
@@ -96,5 +96,11 @@ page-wallpaper {
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+    }
+    .iconMore{
+        float: right;
+        
+        color: gray;
+        font-size: 6.5vw;
     }
 }

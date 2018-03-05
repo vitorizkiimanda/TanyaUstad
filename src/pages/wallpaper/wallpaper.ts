@@ -107,4 +107,7 @@ export class WallpaperPage {
     this.navCtrl.push(WallpaperDetailPage,data);
   }
 
+  share(data){
+    alert("share");
+  }
 }

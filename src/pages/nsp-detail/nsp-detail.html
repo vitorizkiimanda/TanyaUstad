@@ -10,6 +10,9 @@
       <ion-col col-8 no-padding class="border">
         <div class="sender">
           {{user}} - {{name}}
+          <span class="iconMore" (click)="share(data)">
+            <ion-icon name="md-more" item-left></ion-icon>
+          </span>
         </div>
         <div class="content">
           {{status}} Views

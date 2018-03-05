@@ -9,14 +9,24 @@
 
 <ion-content class="background">
 
-  <div class="cardVideo" (click)="gotoDetail(event)" *ngFor="let event of events">
-    <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{event.picture}}"/>
+  <div class="cardVideo"  *ngFor="let event of events">
+    <img alt="Gambar Rusak" (click)="gotoDetail(event)" class="pictVideo" src="http://156.67.218.250:81{{event.picture}}"/>
     <div class="EventsContent">
-      <p class="wordContent"><ion-icon name="md-calendar" class='iconContent' color="dark"></ion-icon> {{event.created_at}}</p>
+      <span class="iconMore" (click)="share(data)">
+        <ion-icon name="md-more" item-left></ion-icon>
+      </span>
+      
+      <span (click)="gotoDetail(event)">
+        <p class="wordContent"><ion-icon name="md-calendar" class='iconContent' color="dark"></ion-icon> {{event.created_at}}</p>
+      </span>
 
-      <p class="wordContentTitle">{{event.name}}</p>
+      <span (click)="gotoDetail(event)">
+       <p class="wordContentTitle">{{event.name}}</p>
+      </span>
 
-      <p class="wordContent italic"><ion-icon name="md-pin" class='iconContent' color="dark"></ion-icon> {{event.location}}</p>
+      <span (click)="gotoDetail(event)">
+        <p class="wordContent italic"><ion-icon name="md-pin" class='iconContent' color="dark"></ion-icon> {{event.location}}</p>
+      </span>
     </div>
   </div>
 </ion-content>

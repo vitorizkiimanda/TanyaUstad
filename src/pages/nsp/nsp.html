@@ -9,16 +9,21 @@
 
 <ion-content class="background">
 
-  <div class="card" (click)="gotoDetail(data)" *ngFor="let data of nsp">
+  <div class="card" *ngFor="let data of nsp">
     <ion-row no-padding>
-      <ion-col col-3 no-padding text-center>
+      <ion-col (click)="gotoDetail(data)" col-3 no-padding text-center>
         <img alt="Gambar Rusak" class="pict" src="http://156.67.218.250:81{{data.picture}}"/>
       </ion-col>
       <ion-col col-8 no-padding class="border">
         <div class="sender">
-          {{data.user}} - {{data.name}}
+          <span (click)="gotoDetail(data)">
+            {{data.user}} - {{data.name}}
+          </span>
+          <span class="iconMore" (click)="share(data)">
+            <ion-icon name="md-more" item-left></ion-icon>
+          </span>
         </div>
-        <div class="content">
+        <div class="content" (click)="gotoDetail(data)">
           {{data.status}} Views
         </div>
       </ion-col>

@@ -35,11 +35,16 @@
 </ion-content> -->
 
 <ion-content>
-  <div class="cardVideo" (click)="gotoDetail(data)" *ngFor="let data of images">
+  <div class="cardVideo"  *ngFor="let data of images">
     <div class="nameVideo">
-      {{data.name}}
+      <span (click)="gotoDetail(data)">
+        {{data.name}}
+      </span>
+      <span class="iconMore" (click)="share(data)">
+        <ion-icon name="md-more" item-left></ion-icon>
+      </span>
     </div>
-    <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{data.picture}}"/>
+    <img alt="Gambar Rusak" (click)="gotoDetail(data)" class="pictVideo" src="http://156.67.218.250:81{{data.picture}}"/>
   </div>
 
 </ion-content>

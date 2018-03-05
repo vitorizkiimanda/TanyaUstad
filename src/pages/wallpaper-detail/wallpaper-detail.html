@@ -26,6 +26,9 @@
       <!-- <img alt="Gambar Rusak" class="pictVideo" src="http://156.67.218.250:81{{picture}}"/> -->
       <div class="nameVideo">
         {{name}}
+        <span class="iconMore" (click)="share(data)">
+          <ion-icon name="md-more" item-left></ion-icon>
+        </span>
       </div>
       <div class="infoVideo">
         {{status}} views

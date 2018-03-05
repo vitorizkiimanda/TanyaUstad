@@ -75,4 +75,8 @@ export class NspDetailPage {
     });
   }
 
+  share(data){
+    alert("share");
+  }
+
 }

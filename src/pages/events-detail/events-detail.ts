@@ -35,4 +35,8 @@ export class EventsDetailPage {
     console.log('ionViewDidLoad EventsDetailPage');
   }
 
+  share(data){
+    alert("share");
+  }
+
 }

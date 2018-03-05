@@ -79,5 +79,9 @@ export class EventsPage {
     this.nativePageTransitions.fade(null);
     this.navCtrl.push(EventsDetailPage, data);
   }
+  
+  share(data){
+    alert("share");
+  }
 
 }
