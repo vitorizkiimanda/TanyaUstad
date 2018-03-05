@@ -41,10 +41,12 @@ export class WallpaperDetailPage {
         }
   
         if (this.platform.is('ios')) {
-          this.storageDirectory = cordova.file.documentsDirectory;
+          // this.storageDirectory = cordova.file.documentsDirectory;
+          this.storageDirectory = cordova.file.externalRootDirectory + '/Download/';
         }
         else if(this.platform.is('android')) {
-          this.storageDirectory = cordova.file.dataDirectory;
+          // this.storageDirectory = cordova.file.dataDirectory;
+          this.storageDirectory = cordova.file.externalRootDirectory + '/Download/';
         }
         else {
           // exit otherwise, but you could add further types here e.g. Windows
