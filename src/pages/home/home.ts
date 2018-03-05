@@ -179,4 +179,8 @@ export class HomePage {
     this.nativePageTransitions.fade(null);
     this.navCtrl.push(VideoPage, data);
   }
+
+  share(data){
+    alert("share");
+  }
 }
