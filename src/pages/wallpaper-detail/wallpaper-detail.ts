@@ -106,16 +106,18 @@ export class WallpaperDetailPage {
               // api
           
               const fileTransfer: FileTransferObject = this.transfer.create();
+
+              let location = this.storageDirectory + '/TanyaUstad/' + Date.now()+'.png';
           
               
-              fileTransfer.download(data, this.storageDirectory + temp).then((entry) => {
+              fileTransfer.download(data, location).then((entry) => {
                 console.log('download complete: ' + entry.toURL());
 
                 loading.dismiss();
 
                 let alert = this.alertCtrl.create({
                   title: 'Download Foto Berhasil',
-                  message: 'Lokasi Penyimpanan : '+this.storageDirectory+temp,
+                  message: 'Lokasi Penyimpanan : '+location,
                   buttons: [
                     {
                       text: 'OK',
