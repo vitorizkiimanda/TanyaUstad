@@ -37,6 +37,7 @@ import { NspDetailPage } from '../pages/nsp-detail/nsp-detail';
 import {NgPipesModule} from 'ngx-pipes';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 let storage = new Storage({});
 
@@ -122,6 +123,7 @@ console.log(storage.get('token'));
     ScreenOrientation,
     FileTransfer,
     FileTransferObject,
+    SocialSharing,
     File,
     
 

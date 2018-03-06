@@ -10,6 +10,7 @@ import { VideoPage } from '../video/video';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LoginPage } from '../login/login';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-home',
@@ -36,7 +37,8 @@ export class HomePage {
     private nativePageTransitions: NativePageTransitions,
     private screenOrientation: ScreenOrientation,
     public loadCtrl: LoadingController,
-    public http: Http) {
+    public http: Http,
+    private socialSharing: SocialSharing) {
       
       
       
@@ -181,6 +183,18 @@ export class HomePage {
   }
 
   share(data){
-    alert("share");
+    let loading = this.loadCtrl.create({
+      content: 'berbagi..'
+    });
+
+    loading.present();
+    
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+    
+
+    this.socialSharing.share(data, null, null, null)
+
   }
 }
