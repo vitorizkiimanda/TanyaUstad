@@ -187,6 +187,8 @@ export class HomePage {
       content: 'berbagi..'
     });
 
+    console.log(data.name);
+
     loading.present();
     
     setTimeout(() => {
@@ -194,7 +196,8 @@ export class HomePage {
     }, 5000);
     
 
-    this.socialSharing.share(data, null, null, null)
+    // this.socialSharing.share(data.name, data.user, "http://156.67.218.250:81"+data.picture, data.youtube)
+    this.socialSharing.share(data.youtube, null,null , null);
 
   }
 }

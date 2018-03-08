@@ -12,9 +12,9 @@
   <div class="cardVideo"  *ngFor="let event of events">
     <img alt="Gambar Rusak" (click)="gotoDetail(event)" class="pictVideo" src="http://156.67.218.250:81{{event.picture}}"/>
     <div class="EventsContent">
-      <span class="iconMore" (click)="share(data)">
+      <!-- <span class="iconMore" (click)="share(data)">
         <ion-icon name="md-share" item-left></ion-icon>
-      </span>
+      </span> -->
       
       <span (click)="gotoDetail(event)">
         <p class="wordContent"><ion-icon name="md-calendar" class='iconContent' color="dark"></ion-icon> {{event.created_at}}</p>

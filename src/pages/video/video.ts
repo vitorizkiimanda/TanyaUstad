@@ -9,6 +9,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 import { MyApp } from '../../app/app.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-video',
@@ -17,6 +18,7 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
 export class VideoPage {
 
   url:any;
+  url_original:any;
   name:any;
   user:any;
   status:any;
@@ -34,7 +36,8 @@ export class VideoPage {
     public data: Data,
     public authHttp: AuthHttp,
     private screenOrientation: ScreenOrientation,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private socialSharing: SocialSharing) {
 
     let video = this.navParams.data;
 
@@ -43,6 +46,7 @@ export class VideoPage {
     this.status = video.status;
     this.description = video.description;
     this.url = video.youtube;
+    this.url_original = video.youtube;
     this.id = video.id;
 	
 
@@ -198,8 +202,23 @@ export class VideoPage {
 
   }
 
-  share(data){
-    alert("share");
+  share(){
+    let loading = this.loadCtrl.create({
+      content: 'berbagi..'
+    });
+
+
+    loading.present();
+    
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
+    
+
+    // this.socialSharing.share(data.name, data.user, "http://156.67.218.250:81"+data.picture, data.youtube)
+    this.socialSharing.share(this.url_original, null,null , null);
+
   }
+  
 
 }
