@@ -31,9 +31,15 @@
       </ion-col>
       <ion-col col-2 no-padding class="border2" text-center>
         <div class="date">
-          {{data.updated_at}}
+          {{(data.updated_at)?.substring(11,16)}}
+        </div>
+        <div class="sender">
+          <ion-icon name="ios-arrow-forward-outline" item-left></ion-icon>
         </div>
       </ion-col>
+      <!-- <ion-col col-1 no-padding class="border2" text-center>
+        
+      </ion-col> -->
     </ion-row>
   </div>
 
